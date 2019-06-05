@@ -1,0 +1,10 @@
+fun main() {
+
+}
+
+class Bot () {
+        fun drawCard (activityTable::class.java) {
+            button = (Button) findViewById(R.id.button)
+            button.performClick()
+    }
+}
