@@ -23,6 +23,7 @@
             android:id="@+id/button_start_turn"/>
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp"
             android:text="Ваша колода: "
             android:textSize="25dp"
             android:id="@+id/yourDeck"/>
@@ -30,16 +31,19 @@
               android:layout_height="wrap_content"
               android:text="Ваша карта:"
               android:textSize="25dp"
+              android:layout_marginLeft="10dp"
               android:id="@+id/yourCard"/>
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:text="Карта противника: "
               android:textSize="25dp"
+              android:layout_marginLeft="10dp"
               android:id="@+id/enemyCard"/>
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:text="Колода противника: "
               android:textSize="25dp"
+              android:layout_marginLeft="10dp"
               android:id="@+id/enemyDeck"/>
 
 </LinearLayout>
