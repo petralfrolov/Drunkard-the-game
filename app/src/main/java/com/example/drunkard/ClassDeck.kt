@@ -19,6 +19,7 @@ class Deck() {
         }
         var result = deck[size - 1]
         deck = newDeck
+        size--
         return result
     }
 
@@ -29,6 +30,7 @@ class Deck() {
         }
         var result = deck[0]
         deck = newDeck
+        size--
         return result
     }
 }
