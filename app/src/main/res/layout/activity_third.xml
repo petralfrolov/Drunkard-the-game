@@ -7,29 +7,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <Button android:layout_width="wrap_content"
+    <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Сдаться"
+            android:layout_margin="10dp"
             android:id="@+id/button_sdatsa"
             android:onClick="movemenu"/>
 
-    <Button android:layout_width="wrap_content"
+    <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Ходить"
+            android:layout_margin="10dp"
             android:id="@+id/button_start_turn"/>
-    <TextView android:layout_width="wrap_content"
+    <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
             android:text="Ваша колода: "
             android:id="@+id/yourDeck"/>
-    <TextView android:layout_width="wrap_content"
+    <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:text=""
               android:id="@+id/yourCard"/>
-    <TextView android:layout_width="wrap_content"
+    <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:text=""
               android:id="@+id/enemyCard"/>
-    <TextView android:layout_width="wrap_content"
+    <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:text="Колода противника: "
               android:id="@+id/enemyDeck"/>
