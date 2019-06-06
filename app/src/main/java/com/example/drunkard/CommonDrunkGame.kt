@@ -1,18 +1,41 @@
 package com.example.drunkard
 
+import android.util.Log
+import java.lang.Math.abs
+import java.util.*
+
 class Drunkgame() {
     private var yourDeck : Deck = Deck()
     private var enemyDeck : Deck = Deck()
     var yourCard = Card("", 0)
     var enemyCard = Card("", 0)
     init {
+        var deck : Array<Card> = emptyArray()
+        var used : Array<Boolean> = emptyArray()
         for (i in 6..14) {
-            yourDeck.AddCard(Card("a", i))
-            yourDeck.AddCard(Card("b", 20 - i))
+            deck = deck.plus(Card("a", i))
+            deck = deck.plus(Card("b", i))
+            deck = deck.plus(Card("c", i))
+            deck = deck.plus(Card("d", i))
+            used = used.plus(false)
+            used = used.plus(false)
+            used = used.plus(false)
+            used = used.plus(false)
         }
-        for (i in 6..14) {
-            enemyDeck.AddCard(Card("c", 20 - i))
-            enemyDeck.AddCard(Card("d", i))
+        while (yourDeck.GetDeckSize() < 18) {
+            var i : Int = abs(Random().nextInt()) % 36
+            Log.d("Check", i.toString())
+            if (!used[i]) {
+                used[i]= true
+                yourDeck.AddCard(deck[i])
+            }
+        }
+        while (enemyDeck.GetDeckSize() < 18) {
+            var i : Int = abs(Random().nextInt()) % 36
+            if (!used[i]) {
+                used[i]= true
+                enemyDeck.AddCard(deck[i])
+            }
         }
     }
 

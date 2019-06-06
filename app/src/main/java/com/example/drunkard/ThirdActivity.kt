@@ -40,7 +40,7 @@ class ThirdActivity : AppCompatActivity() {
     fun movemenu(view: View){
         val moveIntent = Intent (this, MainActivity::class.java)
         startActivity(moveIntent)
-        val toast = Toast.makeText(this,"Игра окончена",Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(this,"Игра окончена\nИщи ошибки",Toast.LENGTH_SHORT)
         toast.show()
     }
 }
