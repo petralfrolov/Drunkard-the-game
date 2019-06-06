@@ -27,7 +27,7 @@ class ThirdActivity : AppCompatActivity() {
             enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
 
 
-            Thread.sleep(500)
+            //Thread.sleep(100)
             game.EndTurn()
             yourCard.text = "Ваша карта: -"
             enemyCard.text = "Карта противника: -"
