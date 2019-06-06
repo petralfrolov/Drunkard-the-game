@@ -14,23 +14,15 @@ class Deck() {
     }
 
     fun GetLastCard() : Card {
-        var newDeck : Array<Card> = emptyArray()
-        for (i in 0 until size - 1) {
-            newDeck = newDeck.plus(deck[i])
-        }
         var result = deck[size - 1]
-        deck = newDeck
+        deck = deck.sliceArray(0 until size - 1)
         size--
         return result
     }
 
     fun GetFirstCard() : Card {
-        var newDeck : Array<Card> = emptyArray()
-        for (i in 1 until size) {
-            newDeck = newDeck.plus(deck[i])
-        }
         var result = deck[0]
-        deck = newDeck
+        deck = deck.sliceArray(1 until size)
         size--
         return result
     }

@@ -10,13 +10,13 @@ class Drunkgame() {
     var yourCard = Card("", 0)
     var enemyCard = Card("", 0)
     init {
-        var deck : Array<Card> = emptyArray()
+        var Deck : Array<Card> = emptyArray()
         var used : Array<Boolean> = emptyArray()
         for (i in 6..14) {
-            deck = deck.plus(Card("a", i))
-            deck = deck.plus(Card("b", i))
-            deck = deck.plus(Card("c", i))
-            deck = deck.plus(Card("d", i))
+            Deck = Deck.plus(Card("Spades", i))
+            Deck = Deck.plus(Card("Clubs", i))
+            Deck = Deck.plus(Card("Hearts", i))
+            Deck = Deck.plus(Card("Diamonds", i))
             used = used.plus(false)
             used = used.plus(false)
             used = used.plus(false)
@@ -27,14 +27,14 @@ class Drunkgame() {
             Log.d("Check", i.toString())
             if (!used[i]) {
                 used[i]= true
-                yourDeck.AddCard(deck[i])
+                yourDeck.AddCard(Deck[i])
             }
         }
         while (enemyDeck.GetDeckSize() < 18) {
             var i : Int = abs(Random().nextInt()) % 36
             if (!used[i]) {
                 used[i]= true
-                enemyDeck.AddCard(deck[i])
+                enemyDeck.AddCard(Deck[i])
             }
         }
     }
