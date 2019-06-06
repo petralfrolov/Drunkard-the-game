@@ -19,18 +19,18 @@ class ThirdActivity : AppCompatActivity() {
         enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
         fun OnClickStartTurn(view: View) {
             game.StartTurn()
-            yourCard.text = game.yourCard.GetCardText()
+            yourCard.text = "Ваша карта: - " + game.yourCard.GetCardText()
             Log.d("Check", game.yourCard.GetCardText())
             Log.d("Check", yourCard.text.toString())
-            enemyCard.text = game.enemyCard.GetCardText()
+            enemyCard.text = "Карта противника: - " + game.enemyCard.GetCardText()
             yourDeck.text = "Ваша колода: " + game.GetYourDeckSize().toString()
             enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
 
 
             Thread.sleep(500)
             game.EndTurn()
-            yourCard.text = "-"
-            enemyCard.text = "-"
+            yourCard.text = "Ваша карта: -"
+            enemyCard.text = "Карта противника: -"
             yourDeck.text = "Ваша колода: " + game.GetYourDeckSize().toString()
             enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
 
