@@ -35,4 +35,12 @@ class Drunkgame() {
         }
         return true
     }
+
+    fun GetYourDeckSize() : Int {
+        return yourDeck.GetDeckSize()
+    }
+
+    fun GetEnemyDeckSize() : Int {
+        return enemyDeck.GetDeckSize()
+    }
 }

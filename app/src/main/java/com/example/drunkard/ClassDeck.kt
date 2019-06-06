@@ -10,6 +10,7 @@ class Deck() {
 
     fun AddCard(card : Card) {
         deck = deck.plus(card)
+        size++
     }
 
     fun GetLastCard() : Card {

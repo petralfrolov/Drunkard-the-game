@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
-            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:text="Сдаться"
-                    android:onClick="movemenu"
-            />
-        </RelativeLayout>
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сдаться"
+            android:id="@+id/button_sdatsa"
+            android:onClick="movemenu"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ходить"
+            android:id="@+id/button_start_turn"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+            android:text="Ваша колода: "
+            android:id="@+id/yourDeck"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text=""
+              android:id="@+id/yourCard"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text=""
+              android:id="@+id/enemyCard"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Колода противника: "
+              android:id="@+id/enemyDeck"/>
+
+</LinearLayout>
