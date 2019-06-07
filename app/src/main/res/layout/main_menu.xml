@@ -15,31 +15,32 @@
                   android:orientation="vertical"
 
                   android:background="@drawable/door"
-                  android:weightSum="3">
+                  android:weightSum="5">
 
 
         <ImageView android:id="@+id/logo"
 
                    android:layout_width="match_parent"
                    android:layout_height="1dp"
-                   android:layout_weight="2"
+                   android:layout_weight="4"
 
                    android:layout_marginLeft="80dp"
                    android:layout_marginRight="80dp"
 
                    app:srcCompat="@drawable/logo"/>
 
+
         <ImageView android:id="@+id/playButton"
 
                    android:layout_width="match_parent"
-                   android:layout_height="0dp"
+                   android:layout_height="200dp"
                    android:layout_weight="1"
-
-                   android:layout_marginBottom="10dp"
 
                    app:srcCompat="@drawable/play"
         />
+
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
 

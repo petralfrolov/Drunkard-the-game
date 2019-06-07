@@ -10,14 +10,9 @@ import kotlinx.android.synthetic.main.game_field.*
 class GameField : AppCompatActivity() {
     var game = Drunkgame()
     fun OnClickStartTurn(view: View) {
-        /*
-        Log.d("Check", game.yourCard.GetCardText())
-        Log.d("Check", yourCard.text.toString())
-        */
+        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
+        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
-
-
-        //Thread.sleep(100)
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
                 val moveIntent = Intent (this, MainMenu::class.java)
@@ -32,10 +27,9 @@ class GameField : AppCompatActivity() {
                 toast.show()
             }
         }
+
         yourCard.text = "Your card: " + game.yourCard.GetCardText()
-        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
-        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
     }
 

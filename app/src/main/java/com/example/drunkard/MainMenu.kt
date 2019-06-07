@@ -24,6 +24,7 @@ class MainMenu : AppCompatActivity() {
     fun playButtonListener(view: View){
         playButton.setImageResource(R.drawable.play_pressed)
         view.refreshDrawableState()
+
         val moveIntent = Intent (this, ModeSelect::class.java)
         startActivity(moveIntent)
     }
