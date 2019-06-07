@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,20 +9,26 @@
         android:orientation="vertical"
         android:background="@drawable/table">
 
-        <Button android:id="@+id/pvpButton"
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+    <Button android:id="@+id/pvpButton"
 
-                android:text="PvP"
-                android:textSize="150dp"
-        />
-        <Button android:id="@+id/pveButton"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            android:text="PvP"
+            android:textSize="150sp"
+            app:fontFamily="@font/vt323"
+    />
+    <Button android:id="@+id/pveButton"
 
-                android:text="PvE"
-                android:textSize="150dp"
-        />
-</LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+            android:layout_below="@id/pvpButton"
+            android:layout_alignParentBottom="true"
+
+            android:text="PvE"
+            android:textSize="150sp"
+            app:fontFamily="@font/vt323"
+    />
+</RelativeLayout>
