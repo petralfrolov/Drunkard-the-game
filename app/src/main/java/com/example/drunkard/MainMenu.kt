@@ -1,9 +1,11 @@
 package com.example.drunkard
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import kotlinx.android.synthetic.main.main_menu.*
 
 class MainMenu : AppCompatActivity() {
 
@@ -14,7 +16,10 @@ class MainMenu : AppCompatActivity() {
     }
 
     fun move(view: View){
+        imageView2.setImageResource(R.drawable.play_pressed)
+        view.refreshDrawableState()
         val moveIntent = Intent (this, ModeSelect::class.java)
         startActivity(moveIntent)
+        //imageView2.setImageResource(R.drawable.play)
     }
 }
