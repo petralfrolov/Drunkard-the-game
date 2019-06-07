@@ -3,13 +3,11 @@ package com.example.drunkard
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.example.drunkard.R
-import kotlinx.android.synthetic.main.activity_third.*
+import kotlinx.android.synthetic.main.game_field.*
 
-class ThirdActivity : AppCompatActivity() {
+class GameField : AppCompatActivity() {
     var game = Drunkgame()
     fun OnClickStartTurn(view: View) {
         /*
@@ -22,13 +20,13 @@ class ThirdActivity : AppCompatActivity() {
         //Thread.sleep(100)
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
-                val moveIntent = Intent (this, MainActivity::class.java)
+                val moveIntent = Intent (this, MainMenu::class.java)
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this,"Game over",Toast.LENGTH_SHORT)
                 toast.show()
             }
             else {
-                val moveIntent = Intent (this, MainActivity::class.java)
+                val moveIntent = Intent (this, MainMenu::class.java)
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this,"Game win",Toast.LENGTH_SHORT)
                 toast.show()
@@ -49,7 +47,7 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_third)
+        setContentView(R.layout.game_field)
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
@@ -57,7 +55,7 @@ class ThirdActivity : AppCompatActivity() {
     }
 
     fun movemenu(view: View){
-        val moveIntent = Intent (this, MainActivity::class.java)
+        val moveIntent = Intent (this, MainMenu::class.java)
         startActivity(moveIntent)
         val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
         toast.show()

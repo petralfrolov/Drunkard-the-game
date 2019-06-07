@@ -14,15 +14,15 @@
                 android:layout_height="match_parent">
 
             <ImageView
-                    android:layout_width="380dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="220dp"
                     app:srcCompat="@drawable/logo"
                     android:id="@+id/imageView"
             />
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
                     app:srcCompat="@drawable/play"
                     android:id="@+id/imageView2"
                     android:onClick="move"
