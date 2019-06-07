@@ -8,35 +8,35 @@
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
 
-                  android:background="@drawable/door">
+                  android:orientation="vertical"
 
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                  android:background="@drawable/door"
+                  android:weightSum="4">
 
-            <ImageView android:id="@+id/logo"
 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+        <ImageView android:id="@+id/logo"
 
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:layout_weight="3"
 
-                       app:srcCompat="@drawable/logo"
-            />
+                   android:layout_centerHorizontal="true"
+                   android:layout_alignParentTop="true"
 
-            <ImageView android:id="@+id/playButton"
+                   app:srcCompat="@drawable/logo"/>
 
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
+        <ImageView android:id="@+id/playButton"
 
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="120dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:layout_weight="1"
 
-                       app:srcCompat="@drawable/play"
-            />
-        </RelativeLayout>
+                   android:layout_centerHorizontal="true"
+                   android:layout_alignParentBottom="true"
+                   android:layout_marginBottom="120dp"
+
+                   app:srcCompat="@drawable/play"
+        />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
 

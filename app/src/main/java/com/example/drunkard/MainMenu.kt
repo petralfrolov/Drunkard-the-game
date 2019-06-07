@@ -16,6 +16,11 @@ class MainMenu : AppCompatActivity() {
         playButton.setOnClickListener(::playButtonListener)
     }
 
+    override fun onResume() {
+        super.onResume()
+        playButton.setImageResource(R.drawable.play)
+    }
+
     fun playButtonListener(view: View){
         playButton.setImageResource(R.drawable.play_pressed)
         view.refreshDrawableState()
