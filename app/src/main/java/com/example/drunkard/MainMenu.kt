@@ -13,13 +13,13 @@ class MainMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_menu)
+        playButton.setOnClickListener(::playButtonListener)
     }
 
-    fun move(view: View){
-        imageView2.setImageResource(R.drawable.play_pressed)
+    fun playButtonListener(view: View){
+        playButton.setImageResource(R.drawable.play_pressed)
         view.refreshDrawableState()
         val moveIntent = Intent (this, ModeSelect::class.java)
         startActivity(moveIntent)
-        //imageView2.setImageResource(R.drawable.play)
     }
 }

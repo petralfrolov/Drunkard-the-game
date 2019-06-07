@@ -9,42 +9,64 @@
         android:background="@drawable/table">
 
 
-    <TextView android:layout_width="fill_parent"
+    <TextView android:id="@+id/yourDeck"
+              android:layout_width="fill_parent"
               android:layout_height="wrap_content"
+
               android:layout_marginLeft="10dp"
+
               android:textSize="25dp"
-              android:id="@+id/yourDeck"
-              android:textColor="#FFFFFF"/>
-    <TextView android:layout_width="fill_parent"
+              android:textColor="#FFFFFF"
+    />
+    <TextView android:id="@+id/yourCard"
+
+              android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:textSize="25dp"
+
               android:layout_marginLeft="10dp"
-              android:id="@+id/yourCard"
-              android:textColor="#FFFFFF"/>
-    <TextView android:layout_width="fill_parent"
+
+              android:textSize="25dp"
+              android:textColor="#FFFFFF"
+    />
+    <TextView android:id="@+id/enemyCard"
+
+              android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:textSize="25dp"
+
               android:layout_marginLeft="10dp"
-              android:id="@+id/enemyCard"
-              android:textColor="#FFFFFF"/>
-    <TextView android:layout_width="fill_parent"
+
+              android:textSize="25dp"
+              android:textColor="#FFFFFF"
+    />
+    <TextView android:id="@+id/enemyDeck"
+
+              android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:textSize="25dp"
+
               android:layout_marginLeft="10dp"
-              android:id="@+id/enemyDeck"
-              android:textColor="#FFFFFF"/>
-    <Button android:layout_width="fill_parent"
+
+              android:textSize="25dp"
+              android:textColor="#FFFFFF"
+    />
+    <Button android:id="@+id/turn"
+
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+
             android:text="Start turn"
             android:textSize="30dp"
-            android:layout_margin="10dp"
-            android:id="@+id/button_start_turn"/>
-    <Button android:layout_width="fill_parent"
+    />
+    <Button android:id="@+id/surrender"
+
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Surrender"
+
             android:layout_margin="10dp"
-            android:id="@+id/button_sdatsa"
-            android:onClick="movemenu"
-            android:textSize="30dp"/>
+
+            android:text="Surrender"
+            android:textSize="30dp"
+    />
 
 </LinearLayout>

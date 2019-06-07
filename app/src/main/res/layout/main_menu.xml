@@ -7,30 +7,35 @@
         android:layout_height="match_parent">
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
+
                   android:background="@drawable/door">
 
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <ImageView
+            <ImageView android:id="@+id/logo"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/logo"
-                    android:id="@+id/imageView"
+
                     android:layout_centerHorizontal="true"
-                    android:layout_alignParentTop="true"/>
-            <ImageView
+                    android:layout_alignParentTop="true"
+
+                       app:srcCompat="@drawable/logo"
+            />
+
+            <ImageView android:id="@+id/playButton"
+
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    app:srcCompat="@drawable/play"
-                    android:id="@+id/imageView2"
-                    android:onClick="move"
+
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="120dp"/>
+                    android:layout_marginBottom="120dp"
 
-
+                       app:srcCompat="@drawable/play"
+            />
         </RelativeLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

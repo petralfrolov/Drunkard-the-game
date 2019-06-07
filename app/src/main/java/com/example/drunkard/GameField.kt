@@ -36,12 +36,6 @@ class GameField : AppCompatActivity() {
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
         enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
-        /*
-        yourCard.text = "Ваша карта: -"
-        enemyCard.text = "Карта противника: -"
-        yourDeck.text = "Ваша колода: " + game.GetYourDeckSize().toString()
-        enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
-        */
 
     }
 
@@ -51,13 +45,14 @@ class GameField : AppCompatActivity() {
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
-        button_start_turn.setOnClickListener(::OnClickStartTurn)
+        turn.setOnClickListener(::OnClickStartTurn)
+        surrender.setOnClickListener(::returnToMenu)
     }
 
-    fun movemenu(view: View){
+    fun returnToMenu(view: View){
         val moveIntent = Intent (this, MainMenu::class.java)
         startActivity(moveIntent)
-        val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
-        toast.show()
+        //val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
+        //toast.show()
     }
 }
