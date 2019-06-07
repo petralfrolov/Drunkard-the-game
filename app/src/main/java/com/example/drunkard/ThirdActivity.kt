@@ -24,7 +24,7 @@ class ThirdActivity : AppCompatActivity() {
             Log.d("Check", yourCard.text.toString())
             */
             yourCard.text = "Your card: " + game.yourCard.GetCardText()
-            yourDeck.text = "\"Your deck: " + game.GetYourDeckSize().toString()
+            yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
             enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
             enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
