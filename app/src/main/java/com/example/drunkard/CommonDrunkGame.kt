@@ -55,14 +55,14 @@ class Drunkgame() {
                     yourDeck.AddCard(yourCurDeck.GetFirstCard())
                 }
             }
-            if (isCardBigger(yourCard, enemyCard) < 0) {
+            else if (isCardBigger(yourCard, enemyCard) < 0) {
                 while (enemyCurDeck.GetDeckSize() > 0) {
                     enemyDeck.AddCard(enemyCurDeck.GetFirstCard())
                     enemyDeck.AddCard(yourCurDeck.GetFirstCard())
                 }
             }
             if (isCardBigger(yourCard, enemyCard) == 0 &&
-                (yourDeck.GetDeckSize() <= 0 || enemyDeck.GetDeckSize() <= 0)) {
+                (yourDeck.GetDeckSize() == 0 || enemyDeck.GetDeckSize() == 0)) {
                 return false
             }
 
