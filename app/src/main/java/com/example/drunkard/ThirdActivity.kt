@@ -12,19 +12,15 @@ import kotlinx.android.synthetic.main.activity_third.*
 class ThirdActivity : AppCompatActivity() {
     var game = Drunkgame()
     fun OnClickStartTurn(view: View) {
-        game.StartTurn()
-        /*s
+        /*
         Log.d("Check", game.yourCard.GetCardText())
         Log.d("Check", yourCard.text.toString())
         */
-        yourCard.text = "Your card: " + game.yourCard.GetCardText()
-        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
-        enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
-        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
+
 
 
         //Thread.sleep(100)
-        if (!game.EndTurn()) {
+        if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
                 //здесь действия в случае победы
             }
@@ -32,6 +28,10 @@ class ThirdActivity : AppCompatActivity() {
                 //здесь действия в случае поражения
             }
         }
+        yourCard.text = "Your card: " + game.yourCard.GetCardText()
+        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
+        enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
+        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
         /*
         yourCard.text = "Ваша карта: -"
         enemyCard.text = "Карта противника: -"

@@ -39,22 +39,37 @@ class Drunkgame() {
         }
     }
 
-    fun StartTurn() {
-        yourCard = yourDeck.GetFirstCard()
-        enemyCard = enemyDeck.GetFirstCard()
-    }
+    fun Turn() : Boolean {
+        var yourCurDeck = Deck()
+        var enemyCurDeck = Deck()
+        do {
+            yourCard = yourDeck.GetFirstCard()
+            enemyCard = enemyDeck.GetFirstCard()
+            Log.d("Enemy = ", enemyCard.GetCardText())
+            Log.d("Your = ", yourCard.GetCardText())
+            yourCurDeck.AddCard(yourCard)
+            enemyCurDeck.AddCard(enemyCard)
+            if (isCardBigger(yourCard, enemyCard) > 0) {
+                while (enemyCurDeck.GetDeckSize() > 0) {
+                    yourDeck.AddCard(enemyCurDeck.GetFirstCard())
+                    yourDeck.AddCard(yourCurDeck.GetFirstCard())
+                }
+            }
+            if (isCardBigger(yourCard, enemyCard) < 0) {
+                while (enemyCurDeck.GetDeckSize() > 0) {
+                    enemyDeck.AddCard(enemyCurDeck.GetFirstCard())
+                    enemyDeck.AddCard(yourCurDeck.GetFirstCard())
+                }
+            }
+            if (isCardBigger(yourCard, enemyCard) == 0 &&
+                (yourDeck.GetDeckSize() <= 0 || enemyDeck.GetDeckSize() <= 0)) {
+                return false
+            }
 
-    fun EndTurn() : Boolean {
-        if (isCardBigger(yourCard, enemyCard) > 0) {
-            yourDeck.AddCard(yourCard)
-            yourDeck.AddCard(enemyCard)
-        }
-        if (isCardBigger(yourCard, enemyCard) < 0) {
-            enemyDeck.AddCard(yourCard)
-            enemyDeck.AddCard(enemyCard)
-        }
-        if (isCardBigger(yourCard, enemyCard) == 0)
-            //kappa
+
+        } while (isCardBigger(yourCard, enemyCard) == 0 &&
+                 yourDeck.GetDeckSize() > 0 &&
+                 enemyDeck.GetDeckSize() > 0)
         if (yourDeck.GetDeckSize() <= 0 || enemyDeck.GetDeckSize() <= 0) {
             return false
         }
