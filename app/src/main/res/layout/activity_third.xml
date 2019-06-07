@@ -30,7 +30,7 @@
               android:id="@+id/enemyDeck"/>
     <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Сдаться"
+            android:text="Surrender"
             android:layout_margin="10dp"
             android:id="@+id/button_sdatsa"
             android:onClick="movemenu"
@@ -38,7 +38,7 @@
 
     <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Ходить"
+            android:text="Start turn"
             android:textSize="30dp"
             android:layout_margin="10dp"
             android:id="@+id/button_start_turn"/>
