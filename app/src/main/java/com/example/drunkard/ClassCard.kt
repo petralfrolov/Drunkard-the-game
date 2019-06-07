@@ -9,7 +9,7 @@ class Card(type : String, value : Int) {
     }
 
     fun GetCardText() : String {
-        return cardType + cardValue.toString()
+        return cardValue.toString() + " of " + cardType
     }
 
     fun GetCardValue() : Int {
