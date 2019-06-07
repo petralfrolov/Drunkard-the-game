@@ -22,10 +22,16 @@ class ThirdActivity : AppCompatActivity() {
         //Thread.sleep(100)
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
-                //здесь действия в случае победы
+                val moveIntent = Intent (this, MainActivity::class.java)
+                startActivity(moveIntent)
+                val toast = Toast.makeText(this,"Game win",Toast.LENGTH_SHORT)
+                toast.show()
             }
             else {
-                //здесь действия в случае поражения
+                val moveIntent = Intent (this, MainActivity::class.java)
+                startActivity(moveIntent)
+                val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
+                toast.show()
             }
         }
         yourCard.text = "Your card: " + game.yourCard.GetCardText()
