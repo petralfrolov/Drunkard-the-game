@@ -10,7 +10,7 @@
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="match_parent">
             <Button
-                    android:text="Играть"
+                    android:text="New game"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/button"
@@ -20,7 +20,7 @@
                     android:onClick="move"
             />
             <TextView
-                    android:text="Drunkcard 2.0"
+                    android:text="Drunkcard\n the game"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView"

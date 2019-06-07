@@ -15,16 +15,18 @@ class ThirdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
         var game = Drunkgame()
-        yourDeck.text = "Ваша колода: " + game.GetYourDeckSize().toString()
-        enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
+        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
+        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
         fun OnClickStartTurn(view: View) {
             game.StartTurn()
-            yourCard.text = "Ваша карта: " + game.yourCard.GetCardText()
+            /*
             Log.d("Check", game.yourCard.GetCardText())
             Log.d("Check", yourCard.text.toString())
-            enemyCard.text = "Карта противника: " + game.enemyCard.GetCardText()
-            yourDeck.text = "Ваша колода: " + game.GetYourDeckSize().toString()
-            enemyDeck.text = "Колода противника: " + game.GetEnemyDeckSize().toString()
+            */
+            yourCard.text = "Your card: " + game.yourCard.GetCardText()
+            yourDeck.text = "\"Your deck: " + game.GetYourDeckSize().toString()
+            enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
+            enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
 
             //Thread.sleep(100)
@@ -42,7 +44,7 @@ class ThirdActivity : AppCompatActivity() {
     fun movemenu(view: View){
         val moveIntent = Intent (this, MainActivity::class.java)
         startActivity(moveIntent)
-        val toast = Toast.makeText(this,"Игра окончена\nИщи ошибки",Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
         toast.show()
     }
 }
