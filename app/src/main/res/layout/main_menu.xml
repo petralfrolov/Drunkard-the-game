@@ -3,40 +3,43 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
+                  android:layout_weight="5"
 
                   android:orientation="vertical"
 
                   android:background="@drawable/door"
-                  android:weightSum="4">
+                  android:weightSum="3">
 
 
         <ImageView android:id="@+id/logo"
 
                    android:layout_width="match_parent"
                    android:layout_height="1dp"
-                   android:layout_weight="3"
+                   android:layout_weight="2"
 
-                   android:layout_centerHorizontal="true"
-                   android:layout_alignParentTop="true"
+                   android:layout_marginLeft="80dp"
+                   android:layout_marginRight="80dp"
 
                    app:srcCompat="@drawable/logo"/>
 
         <ImageView android:id="@+id/playButton"
 
                    android:layout_width="match_parent"
-                   android:layout_height="1dp"
+                   android:layout_height="0dp"
                    android:layout_weight="1"
 
-                   android:layout_centerHorizontal="true"
-                   android:layout_alignParentBottom="true"
-                   android:layout_marginBottom="120dp"
+                   android:layout_marginBottom="10dp"
 
                    app:srcCompat="@drawable/play"
         />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
 
