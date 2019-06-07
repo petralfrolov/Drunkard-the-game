@@ -24,13 +24,13 @@ class ThirdActivity : AppCompatActivity() {
             if (game.GetYourDeckSize() <= 0) {
                 val moveIntent = Intent (this, MainActivity::class.java)
                 startActivity(moveIntent)
-                val toast = Toast.makeText(this,"Game win",Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this,"Game over",Toast.LENGTH_SHORT)
                 toast.show()
             }
             else {
                 val moveIntent = Intent (this, MainActivity::class.java)
                 startActivity(moveIntent)
-                val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this,"Game win",Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
