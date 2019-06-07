@@ -10,27 +10,24 @@
                   android:background="@drawable/door">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="50dp"
-                android:onClick="move"
-                android:text="New game" />
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="318dp" app:srcCompat="@drawable/logo" android:id="@+id/imageView"
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="100dp"
-                android:text="Drunkcard\n the game"
-                android:textSize="48sp"/>
+            />
+            <ImageView
+                    android:layout_width="276dp"
+                    android:layout_height="89dp" app:srcCompat="@drawable/play" android:id="@+id/imageView2"
+                    android:onClick="move"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="70dp"
+
+            />
+
 
         </RelativeLayout>
     </LinearLayout>
