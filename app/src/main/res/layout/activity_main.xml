@@ -15,12 +15,16 @@
 
             <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="318dp" app:srcCompat="@drawable/logo" android:id="@+id/imageView"
+                    android:layout_height="318dp"
+                    app:srcCompat="@drawable/logo"
+                    android:id="@+id/imageView"
 
             />
             <ImageView
                     android:layout_width="276dp"
-                    android:layout_height="89dp" app:srcCompat="@drawable/play" android:id="@+id/imageView2"
+                    android:layout_height="89dp"
+                    app:srcCompat="@drawable/play"
+                    android:id="@+id/imageView2"
                     android:onClick="move"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
