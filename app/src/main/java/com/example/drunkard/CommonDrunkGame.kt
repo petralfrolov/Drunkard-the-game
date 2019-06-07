@@ -7,6 +7,8 @@ import java.util.*
 class Drunkgame() {
     private var yourDeck : Deck = Deck()
     private var enemyDeck : Deck = Deck()
+    private var yourCurDeck = Deck()
+    private var enemyCurDeck = Deck()
     var yourCard = Card("", 0)
     var enemyCard = Card("", 0)
     init {
@@ -40,39 +42,23 @@ class Drunkgame() {
     }
 
     fun Turn() : Boolean {
-        var yourCurDeck = Deck()
-        var enemyCurDeck = Deck()
-        do {
-            yourCard = yourDeck.GetFirstCard()
-            enemyCard = enemyDeck.GetFirstCard()
-            Log.d("Enemy = ", enemyCard.GetCardText())
-            Log.d("Your = ", yourCard.GetCardText())
-            yourCurDeck.AddCard(yourCard)
-            enemyCurDeck.AddCard(enemyCard)
-            if (isCardBigger(yourCard, enemyCard) > 0) {
-                while (enemyCurDeck.GetDeckSize() > 0) {
-                    yourDeck.AddCard(enemyCurDeck.GetFirstCard())
-                    yourDeck.AddCard(yourCurDeck.GetFirstCard())
-                }
-            }
-            else if (isCardBigger(yourCard, enemyCard) < 0) {
-                while (enemyCurDeck.GetDeckSize() > 0) {
-                    enemyDeck.AddCard(enemyCurDeck.GetFirstCard())
-                    enemyDeck.AddCard(yourCurDeck.GetFirstCard())
-                }
-            }
-            if (isCardBigger(yourCard, enemyCard) == 0 &&
-                (yourDeck.GetDeckSize() == 0 || enemyDeck.GetDeckSize() == 0)) {
-                return false
-            }
 
-
-        } while (isCardBigger(yourCard, enemyCard) == 0 &&
-                 yourDeck.GetDeckSize() > 0 &&
-                 enemyDeck.GetDeckSize() > 0)
-        if (yourDeck.GetDeckSize() <= 0 || enemyDeck.GetDeckSize() <= 0) {
-            return false
+        yourCard = yourDeck.GetFirstCard()
+        enemyCard = enemyDeck.GetFirstCard()
+        Log.d("Enemy = ", enemyCard.GetCardText())
+        Log.d("Your = ", yourCard.GetCardText())
+        yourCurDeck.AddCard(yourCard)
+        enemyCurDeck.AddCard(enemyCard)
+        if (isCardBigger(yourCard, enemyCard) > 0) {
+            MergeDecks(yourDeck, yourCurDeck)
+            MergeDecks(yourDeck, enemyCurDeck)
         }
+        if  (isCardBigger(yourCard, enemyCard) < 0) {
+            MergeDecks(enemyDeck, yourCurDeck)
+            MergeDecks(enemyDeck, enemyCurDeck)
+        }
+        if (yourDeck.GetDeckSize() == 0 || enemyDeck.GetDeckSize() == 0)
+            return false
         return true
     }
 

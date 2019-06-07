@@ -27,3 +27,9 @@ class Deck() {
         return result
     }
 }
+
+fun MergeDecks(firstDeck : Deck, secondDeck : Deck) : Deck {
+    while (secondDeck.GetDeckSize() > 0)
+        firstDeck.AddCard(secondDeck.GetFirstCard())
+    return firstDeck
+}
