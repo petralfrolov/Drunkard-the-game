@@ -19,6 +19,7 @@ class Card(type : String, value : Int) {
     fun GetCardType() : String {
         return cardType
     }
+
 }
 
 fun isCardBigger(firstCard : Card, secondCard : Card) : Int {
