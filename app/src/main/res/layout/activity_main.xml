@@ -6,28 +6,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent">
-        <RelativeLayout android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                  android:layout_height="match_parent"
+                  android:background="@drawable/door">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
             <Button
-                    android:text="New game"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="50dp"
-                    android:onClick="move"
-            />
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:onClick="move"
+                android:text="New game" />
+
             <TextView
-                    android:text="Drunkcard\n the game"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView"
-                    android:textSize="48sp"
-                    android:layout_marginTop="100dp"
-                    android:layout_centerHorizontal="true"
-            />
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:text="Drunkcard\n the game"
+                android:textSize="48sp"/>
+
         </RelativeLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
