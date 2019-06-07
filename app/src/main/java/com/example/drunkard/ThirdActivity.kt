@@ -30,7 +30,14 @@ class ThirdActivity : AppCompatActivity() {
 
 
             //Thread.sleep(100)
-            game.EndTurn()
+            if (!game.EndTurn()) {
+                if (game.GetYourDeckSize() <= 0) {
+                    //здесь действия в случае победы
+                }
+                else {
+                    //здесь действия в случае поражения
+                }
+            }
             /*
             yourCard.text = "Ваша карта: -"
             enemyCard.text = "Карта противника: -"
