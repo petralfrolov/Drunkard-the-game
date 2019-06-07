@@ -48,6 +48,7 @@ class ThirdActivity : AppCompatActivity() {
         }
         button_start_turn.setOnClickListener(::OnClickStartTurn)
     }
+
     fun movemenu(view: View){
         val moveIntent = Intent (this, MainActivity::class.java)
         startActivity(moveIntent)

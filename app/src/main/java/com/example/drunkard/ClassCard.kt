@@ -20,3 +20,13 @@ class Card(type : String, value : Int) {
         return cardType
     }
 }
+
+fun isCardBigger(firstCard : Card, secondCard : Card) : Int {
+    if (firstCard.GetCardValue() == secondCard.GetCardValue())
+        return 0
+    if (firstCard.GetCardValue() == 6 && secondCard.GetCardValue() == 14)
+        return 1
+    if (firstCard.GetCardValue() == 14 && secondCard.GetCardValue() == 6)
+        return -1
+    return firstCard.GetCardValue() - secondCard.GetCardValue()
+}

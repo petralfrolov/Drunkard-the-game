@@ -45,14 +45,16 @@ class Drunkgame() {
     }
 
     fun EndTurn() : Boolean {
-        if ((yourCard.GetCardValue() >= enemyCard.GetCardValue() && !(yourCard.GetCardValue() == 14 && enemyCard.GetCardValue() == 6)) || (yourCard.GetCardValue() == 6 && enemyCard.GetCardValue() == 14)) {
+        if (isCardBigger(yourCard, enemyCard) > 0) {
             yourDeck.AddCard(yourCard)
             yourDeck.AddCard(enemyCard)
         }
-        if ((yourCard.GetCardValue() < enemyCard.GetCardValue() && !(yourCard.GetCardValue() == 6 && enemyCard.GetCardValue() == 14)) || (yourCard.GetCardValue() == 14 && enemyCard.GetCardValue() == 6)) {
+        if (isCardBigger(yourCard, enemyCard) < 0) {
             enemyDeck.AddCard(yourCard)
             enemyDeck.AddCard(enemyCard)
         }
+        if (isCardBigger(yourCard, enemyCard) == 0)
+            //kappa
         if (yourDeck.GetDeckSize() <= 0 || enemyDeck.GetDeckSize() <= 0) {
             return false
         }
