@@ -1,6 +1,7 @@
 package com.example.drunkard
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Point
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -15,7 +16,7 @@ class ModeSelect : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mode_select)
-
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         /* Не пашет
         val display = windowManager.defaultDisplay
         val size = Point()
