@@ -10,12 +10,11 @@
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:layout_weight="5"
 
                   android:orientation="vertical"
 
-                  android:background="@drawable/dark"
-                  android:weightSum="6">
+                  android:background="@drawable/castle"
+                  android:weightSum="5">
 
         <ImageView android:id="@+id/logo"
 
@@ -26,18 +25,6 @@
                    app:srcCompat="@drawable/logo"
         />
 
-        <ImageView android:id="@+id/suits"
-
-                   android:layout_width="match_parent"
-                   android:layout_height="1dp"
-                   android:layout_weight="1"
-
-                   android:layout_marginLeft="100dp"
-                   android:layout_marginRight="100dp"
-
-
-                   app:srcCompat="@drawable/suits"
-        />
 
         <ImageView android:id="@+id/playButton"
 
