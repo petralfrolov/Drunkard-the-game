@@ -19,7 +19,7 @@
             android:layout_weight="1"
 
             android:text="PvP"
-            android:textSize="150sp"
+            android:textSize="140sp"
             app:fontFamily="@font/vt323"
     />
 
@@ -31,7 +31,7 @@
             android:layout_weight="1"
 
             android:text="PvE"
-            android:textSize="150sp"
+            android:textSize="140sp"
             app:fontFamily="@font/vt323"
     />
 </LinearLayout>

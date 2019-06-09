@@ -1,6 +1,7 @@
 package com.example.drunkard
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,6 +37,7 @@ class GameField : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_field)
+
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
