@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo
 import android.graphics.Point
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.mode_select.*
 import android.view.Display
@@ -16,17 +17,15 @@ class ModeSelect : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mode_select)
-        /* Не пашет
+
         val display = windowManager.defaultDisplay
         val size = Point()
         display.getSize(size)
         val x = size.x
         val y = size.y
 
-        pvpButton.height = y / 2
-        pvpButton.refreshDrawableState()
-        pveButton.refreshDrawableState()
-        */
+        Log.d("Size", x.toString())
+        Log.d("Size", y.toString())
 
         pveButton.setOnClickListener(::PvEgame)
 
