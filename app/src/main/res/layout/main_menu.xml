@@ -14,7 +14,7 @@
 
                   android:orientation="vertical"
 
-                  android:background="@drawable/door"
+                  android:background="@drawable/dark"
                   android:weightSum="6">
 
         <ImageView android:id="@+id/logo"
@@ -22,9 +22,6 @@
                    android:layout_width="match_parent"
                    android:layout_height="1dp"
                    android:layout_weight="4"
-
-                   android:layout_marginLeft="80dp"
-                   android:layout_marginRight="80dp"
 
                    app:srcCompat="@drawable/logo"
         />
