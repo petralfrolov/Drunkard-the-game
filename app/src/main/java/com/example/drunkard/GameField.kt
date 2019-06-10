@@ -2,13 +2,19 @@ package com.example.drunkard
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.AssetManager
+import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.game_field.*
+import java.io.InputStream
 
 class GameField : AppCompatActivity() {
+
     var game = Drunkgame()
     fun OnClickStartTurn(view: View) {
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
@@ -29,14 +35,27 @@ class GameField : AppCompatActivity() {
             }
         }
 
-        yourCard.text = "Your card: " + game.yourCard.GetCardText()
-        enemyCard.text = "Enemy's card: " + game.enemyCard.GetCardText()
+        //Log.d("path", "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
+        var ims = applicationContext.assets.open("cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
+        var card = Drawable.createFromStream(ims, null)
+        yourCardView.setImageDrawable(card)
+        yourCardView.refreshDrawableState()
+
+
+
+        ims = applicationContext.assets.open("cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
+        card = Drawable.createFromStream(ims, null)
+        enemyCardView.setImageDrawable(card)
+        enemyCardView.refreshDrawableState()
+
+
 
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_field)
+
 
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()

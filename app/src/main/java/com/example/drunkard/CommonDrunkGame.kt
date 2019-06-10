@@ -14,27 +14,22 @@ class Drunkgame() {
     init {
         var Deck : Array<Card> = emptyArray()
         var used : Array<Boolean> = emptyArray()
-        var types = arrayOf("jack", "queen", "king", "ace")
+        var faces = arrayOf("jack", "queen", "king", "ace")
+        var suits = arrayOf("spades", "hearts", "clubs", "diamonds")
+
         for (i in 6..10) {
-            Deck = Deck.plus(Card("spades", i, i.toString()))
-            Deck = Deck.plus(Card("clubs", i, i.toString()))
-            Deck = Deck.plus(Card("hearts", i, i.toString()))
-            Deck = Deck.plus(Card("diamonds", i, i.toString()))
-            used = used.plus(false)
-            used = used.plus(false)
-            used = used.plus(false)
-            used = used.plus(false)
+            for (j in 0..3) {
+                Deck = Deck.plus(Card(suits[j], i, i.toString()))
+                used = used.plus(false)
+            }
         }
-        for (i in 0..3) {
-            Deck = Deck.plus(Card("spades", i + 11, types[i]))
-            Deck = Deck.plus(Card("clubs", i + 11, types[i]))
-            Deck = Deck.plus(Card("hearts", i + 11, types[i]))
-            Deck = Deck.plus(Card("diamonds", i + 11, types[i]))
-            used = used.plus(false)
-            used = used.plus(false)
-            used = used.plus(false)
-            used = used.plus(false)
+        for (i in 11..14) {
+            for (j in 0..3) {
+                Deck = Deck.plus(Card(suits[j], i, faces[i - 11]))
+                used = used.plus(false)
+            }
         }
+
         while (yourDeck.GetDeckSize() < 18) {
             var i : Int = abs(Random().nextInt()) % 36
             Log.d("Check", i.toString())

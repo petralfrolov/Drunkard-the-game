@@ -18,26 +18,53 @@
               android:textSize="25dp"
               android:textColor="#FFFFFF"
     />
-    <TextView android:id="@+id/yourCard"
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
 
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-              android:layout_marginLeft="10dp"
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-              android:textSize="25dp"
-              android:textColor="#FFFFFF"
-    />
-    <TextView android:id="@+id/enemyCard"
+                android:layout_marginLeft="10dp"
 
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
+                android:text="Your card: "
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+        />
 
-              android:layout_marginLeft="10dp"
+        <ImageView android:id="@+id/yourCardView"
+                   android:layout_width="100dp"
+                   android:layout_height="150dp"
+        />
 
-              android:textSize="25dp"
-              android:textColor="#FFFFFF"
-    />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+
+                  android:orientation="horizontal">
+
+        <TextView android:id="@+id/enemyCard"
+
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+
+                  android:layout_marginLeft="10dp"
+
+                  android:text="Enemy card: "
+                  android:textSize="25dp"
+                  android:textColor="#FFFFFF"
+        />
+
+        <ImageView android:id="@+id/enemyCardView"
+                   android:layout_width="100dp"
+                   android:layout_height="150dp"
+        />
+
+    </LinearLayout>
+
     <TextView android:id="@+id/enemyDeck"
 
               android:layout_width="fill_parent"

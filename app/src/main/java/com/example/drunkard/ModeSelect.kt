@@ -24,8 +24,6 @@ class ModeSelect : AppCompatActivity() {
         val x = size.x
         val y = size.y
 
-        Log.d("Size", x.toString())
-        Log.d("Size", y.toString())
 
         pveButton.setOnClickListener(::PvEgame)
 
