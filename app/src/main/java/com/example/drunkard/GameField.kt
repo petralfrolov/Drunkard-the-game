@@ -1,5 +1,6 @@
 package com.example.drunkard
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.AssetManager
@@ -14,40 +15,44 @@ import kotlinx.android.synthetic.main.game_field.*
 import java.io.InputStream
 
 class GameField : AppCompatActivity() {
-
     var game = Drunkgame()
+
+    fun loadImg(view : View, path : String){
+        var ims = applicationContext.assets.open(path)
+        var img = Drawable.createFromStream(ims, null)
+        (view as ImageView).setImageDrawable(img)
+        yourCardView.refreshDrawableState()
+    }
+
     fun OnClickStartTurn(view: View) {
+        var ims: InputStream
+        var card : Drawable
+
+
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
-        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
+        enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
-                val moveIntent = Intent (this, MainMenu::class.java)
+                val moveIntent = Intent(this, MainMenu::class.java)
                 startActivity(moveIntent)
-                val toast = Toast.makeText(this,"Game over",Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this, "Game over", Toast.LENGTH_SHORT)
                 toast.show()
-            }
-            else {
-                val moveIntent = Intent (this, MainMenu::class.java)
+            } else {
+                val moveIntent = Intent(this, MainMenu::class.java)
                 startActivity(moveIntent)
-                val toast = Toast.makeText(this,"Game win",Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this, "Game win", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
 
         //Log.d("path", "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
-        var ims = applicationContext.assets.open("cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
-        var card = Drawable.createFromStream(ims, null)
-        yourCardView.setImageDrawable(card)
-        yourCardView.refreshDrawableState()
-
-
+        loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
 
         ims = applicationContext.assets.open("cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
         card = Drawable.createFromStream(ims, null)
         enemyCardView.setImageDrawable(card)
         enemyCardView.refreshDrawableState()
-
 
 
     }
@@ -56,16 +61,25 @@ class GameField : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_field)
 
+        loadImg(enemyDeck1, "cards/back.png")
 
         yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
-        enemyDeck.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
+        enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
         turn.setOnClickListener(::OnClickStartTurn)
         surrender.setOnClickListener(::returnToMenu)
     }
 
-    fun returnToMenu(view: View){
-        val moveIntent = Intent (this, MainMenu::class.java)
+    override fun onResume() {
+        super.onResume()
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
+    }
+
+
+    fun returnToMenu(view: View) {
+        val moveIntent = Intent(this, MainMenu::class.java)
         startActivity(moveIntent)
         //val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
         //toast.show()

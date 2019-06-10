@@ -21,6 +21,9 @@ class MainMenu : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         playButton.setImageResource(R.drawable.play)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
     }
 
     fun playButtonListener(view: View){

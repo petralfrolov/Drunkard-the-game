@@ -1,5 +1,6 @@
 package com.example.drunkard
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Point
@@ -28,6 +29,14 @@ class ModeSelect : AppCompatActivity() {
         pveButton.setOnClickListener(::PvEgame)
 
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
+    }
+
     fun PvEgame(view: View){
         val moveIntent = Intent (this, GameField::class.java)
         startActivity(moveIntent)
