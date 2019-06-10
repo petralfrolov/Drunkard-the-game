@@ -39,6 +39,7 @@ class MainMenu : AppCompatActivity() {
         view.refreshDrawableState()
 
         val moveIntent = Intent (this, ModeSelect::class.java)
+        player.stop()
         startActivity(moveIntent)
     }
 }

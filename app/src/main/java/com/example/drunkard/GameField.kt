@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.AssetManager
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import java.io.InputStream
 
 class GameField : AppCompatActivity() {
     var game = Drunkgame()
+    lateinit var player : MediaPlayer
 
     fun loadImg(view : View, path : String){
         var ims = applicationContext.assets.open(path)
@@ -35,11 +37,13 @@ class GameField : AppCompatActivity() {
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
                 val moveIntent = Intent(this, MainMenu::class.java)
+                player.stop()
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this, "Game over", Toast.LENGTH_SHORT)
                 toast.show()
             } else {
                 val moveIntent = Intent(this, MainMenu::class.java)
+                player.stop()
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this, "Game win", Toast.LENGTH_SHORT)
                 toast.show()
@@ -56,6 +60,11 @@ class GameField : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_field)
+
+        player = MediaPlayer.create(this, R.raw.gayme)
+        player.isLooping = true
+        player.setVolume(0.5f, 0.5f)
+        player.start()
 
         loadImg(enemyDeck1, "cards/back.png")
 
@@ -76,6 +85,7 @@ class GameField : AppCompatActivity() {
 
     fun returnToMenu(view: View) {
         val moveIntent = Intent(this, MainMenu::class.java)
+        player.stop()
         startActivity(moveIntent)
         //val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
         //toast.show()
