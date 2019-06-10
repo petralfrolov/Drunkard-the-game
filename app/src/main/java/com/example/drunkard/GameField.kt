@@ -29,7 +29,7 @@ class GameField : AppCompatActivity() {
         var card : Drawable
 
 
-        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
+        yourDeckSize.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
         if (!game.Turn()) {
@@ -49,11 +49,7 @@ class GameField : AppCompatActivity() {
         //Log.d("path", "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
 
-        ims = applicationContext.assets.open("cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
-        card = Drawable.createFromStream(ims, null)
-        enemyCardView.setImageDrawable(card)
-        enemyCardView.refreshDrawableState()
-
+        loadImg(enemyCardView,"cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
     }
 
@@ -63,7 +59,7 @@ class GameField : AppCompatActivity() {
 
         loadImg(enemyDeck1, "cards/back.png")
 
-        yourDeck.text = "Your deck: " + game.GetYourDeckSize().toString()
+        yourDeckSize.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
         turn.setOnClickListener(::OnClickStartTurn)
