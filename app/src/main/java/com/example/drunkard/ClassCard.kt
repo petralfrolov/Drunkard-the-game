@@ -1,19 +1,25 @@
 package com.example.drunkard
 
-class Card(type : String, value : Int) {
+class Card(type : String, value : Int, name : String) {
     private var cardType : String = ""
     private var cardValue : Int = 0
+    private var cardName : String = ""
     init {
         cardType = type
         cardValue = value
+        cardName = name
     }
 
     fun GetCardText() : String {
-        return cardValue.toString() + " of " + cardType
+        return cardName + " of " + cardType
     }
 
     fun GetCardValue() : Int {
         return cardValue
+    }
+
+    fun GetCardName() : String {
+        return cardName
     }
 
     fun GetCardType() : String {
