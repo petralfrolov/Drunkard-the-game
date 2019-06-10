@@ -1,14 +1,10 @@
 package com.example.drunkard
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.content.res.AssetManager
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -17,7 +13,7 @@ import java.io.InputStream
 
 class GameField : AppCompatActivity() {
     var game = Drunkgame()
-    lateinit var player : MediaPlayer
+    lateinit var player : Player
 
     fun loadImg(view : View, path : String){
         var ims = applicationContext.assets.open(path)
@@ -61,10 +57,8 @@ class GameField : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_field)
 
-        player = MediaPlayer.create(this, R.raw.gayme)
-        player.isLooping = true
-        player.setVolume(0.5f, 0.5f)
-        player.start()
+        player = Player(this, R.raw.game_theme)
+        player.play()
 
         loadImg(enemyDeck1, "cards/back_turned.png")
         loadImg(yourDeck1, "cards/back_turned.png")
@@ -79,14 +73,17 @@ class GameField : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        player.play()
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
     }
 
 
     fun returnToMenu(view: View) {
-        val moveIntent = Intent(this, MainMenu::class.java)
         player.stop()
+
+        val moveIntent = Intent(this, MainMenu::class.java)
         startActivity(moveIntent)
         //val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
         //toast.show()
