@@ -16,8 +16,8 @@
                  android:layout_weight="1">
 
         <ImageView android:id="@+id/enemyDeck1"
-                   android:layout_width="72dp"
-                   android:layout_height="100dp"
+                   android:layout_width="100dp"
+                   android:layout_height="72dp"
                    android:layout_gravity="center_horizontal">
 
         </ImageView>
@@ -49,7 +49,7 @@
                 android:textColor="#FFFFFF"/>
 
         <ImageView android:id="@+id/enemyCardView"
-                   android:layout_width="100dp"
+                   android:layout_width="107dp"
                    android:layout_height="150dp"
 
                    android:layout_gravity="center_horizontal"
@@ -74,7 +74,7 @@
         />
 
         <ImageView android:id="@+id/yourCardView"
-                   android:layout_width="100dp"
+                   android:layout_width="107dp"
                    android:layout_height="150dp"
 
                    android:layout_gravity="center_horizontal"
@@ -87,8 +87,8 @@
                  android:layout_weight="1">
 
         <ImageView android:id="@+id/yourDeck1"
-                   android:layout_width="72dp"
-                   android:layout_height="100dp"
+                   android:layout_width="100dp"
+                   android:layout_height="72dp"
                    android:layout_gravity="center_horizontal">
 
         </ImageView>

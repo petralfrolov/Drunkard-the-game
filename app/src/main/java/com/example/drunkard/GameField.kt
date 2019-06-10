@@ -66,8 +66,8 @@ class GameField : AppCompatActivity() {
         player.setVolume(0.5f, 0.5f)
         player.start()
 
-        loadImg(enemyDeck1, "cards/back.png")
-        loadImg(yourDeck1, "cards/back.png")
+        loadImg(enemyDeck1, "cards/back_turned.png")
+        loadImg(yourDeck1, "cards/back_turned.png")
 
         yourDeckSize.text = "Your deck: " + game.GetYourDeckSize().toString()
         enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
