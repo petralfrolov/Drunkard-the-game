@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -57,9 +58,12 @@ class GameField : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_field)
 
+        var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.game_theme)
-        player.play()
-
+        player.muted = muted
+        if (!player.muted) {
+            player.play()
+        }
         loadImg(enemyDeck1, "cards/back_turned.png")
         loadImg(yourDeck1, "cards/back_turned.png")
 
@@ -70,13 +74,32 @@ class GameField : AppCompatActivity() {
         surrender.setOnClickListener(::returnToMenu)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
 
-        player.play()
+        if (!player.muted) {
+            player.play()
+        }
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (!player.muted) {
+            player.play()
+        }
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        player.stop()
     }
 
 
@@ -84,8 +107,7 @@ class GameField : AppCompatActivity() {
         player.stop()
 
         val moveIntent = Intent(this, MainMenu::class.java)
+        moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
-        //val toast = Toast.makeText(this,"Game over\ngit gud",Toast.LENGTH_SHORT)
-        //toast.show()
     }
 }

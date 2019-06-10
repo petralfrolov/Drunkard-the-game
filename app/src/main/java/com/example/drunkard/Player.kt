@@ -6,6 +6,7 @@ import java.io.Serializable
 
 class Player(context: Context, songID: Int) : Serializable{
     var volume : Float
+    var muted : Boolean
 
     lateinit var player: MediaPlayer
 
@@ -14,6 +15,8 @@ class Player(context: Context, songID: Int) : Serializable{
         player = MediaPlayer.create(context, songID)
         player.isLooping = true
         player.setVolume(volume, volume)
+
+        muted = false
     }
 
     fun play() {
