@@ -105,7 +105,7 @@ class GameField : AppCompatActivity() {
         player.stop()
 
         val moveIntent = Intent(this, GameResults::class.java)
-        moveIntent.putExtra("data_id", "LOSE")
+        moveIntent.putExtra("Result", "LOSE")
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
     }

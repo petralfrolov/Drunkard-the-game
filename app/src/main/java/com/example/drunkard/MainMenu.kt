@@ -17,6 +17,14 @@ class MainMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_menu)
 
+        playButton.setOnClickListener(::playButtonListener)
+        muteButton.setOnClickListener(::muteButtonListener)
+    }
+
+    override fun onStart() {
+        Log.d("Create", "OnStart occured")
+        super.onStart()
+
         var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.main_menu_theme)
         player.muted = muted
@@ -27,18 +35,6 @@ class MainMenu : AppCompatActivity() {
             muteButton.setImageResource(R.drawable.muted)
         }
 
-        playButton.setOnClickListener(::playButtonListener)
-        muteButton.setOnClickListener(::muteButtonListener)
-    }
-
-    override fun onStart() {
-        Log.d("Create", "OnStart occured")
-        super.onStart()
-
-        if (!player.muted) {
-            player.play()
-        }
-
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
     }
@@ -46,18 +42,11 @@ class MainMenu : AppCompatActivity() {
     override fun onResume() {
         Log.d("Create", "OnResume occured")
         super.onResume()
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
 
-        if (!player.muted) {
-            player.play()
-        }
-        else {
-            muteButton.setImageResource(R.drawable.muted)
-        }
-
         playButton.setImageResource(R.drawable.play)
-
     }
 
     fun playButtonListener(view: View){
@@ -83,5 +72,9 @@ class MainMenu : AppCompatActivity() {
             player.muted = false
             player.play()
         }
+    }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
     }
 }
