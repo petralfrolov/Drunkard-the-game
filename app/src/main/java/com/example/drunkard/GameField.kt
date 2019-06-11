@@ -28,8 +28,8 @@ class GameField : AppCompatActivity() {
         var card : Drawable
 
 
-        yourDeckSize.text = "Your deck: " + game.GetYourDeckSize().toString()
-        enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
+        yourDeckSize.text = game.GetYourDeckSize().toString()
+        enemyDeckSize.text = game.GetEnemyDeckSize().toString()
 
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
@@ -67,8 +67,8 @@ class GameField : AppCompatActivity() {
         loadImg(enemyDeck, "cards/back_turned.png")
         loadImg(yourDeck, "cards/back_turned.png")
 
-        yourDeckSize.text = "Your deck: " + game.GetYourDeckSize().toString()
-        enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
+        yourDeckSize.text = game.GetYourDeckSize().toString()
+        enemyDeckSize.text = game.GetEnemyDeckSize().toString()
 
         turn.setOnClickListener(::OnClickStartTurn)
         surrender.setOnClickListener(::returnToMenu)
