@@ -33,13 +33,14 @@ class GameField : AppCompatActivity() {
 
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
-                val moveIntent = Intent(this, MainMenu::class.java)
+                val moveIntent = Intent(this, GameEnd::class.java)
                 player.stop()
+                moveIntent.putExtra("data_id", "lose")
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this, "Game over", Toast.LENGTH_SHORT)
                 toast.show()
             } else {
-                val moveIntent = Intent(this, MainMenu::class.java)
+                val moveIntent = Intent(this, GameEnd::class.java)
                 player.stop()
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this, "Game win", Toast.LENGTH_SHORT)
@@ -49,7 +50,6 @@ class GameField : AppCompatActivity() {
 
         //Log.d("path", "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
-
         loadImg(enemyCardView,"cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
     }
@@ -71,7 +71,7 @@ class GameField : AppCompatActivity() {
         enemyDeckSize.text = "Enemy's deck: " + game.GetEnemyDeckSize().toString()
 
         turn.setOnClickListener(::OnClickStartTurn)
-        surrender.setOnClickListener(::returnToMenu)
+        surrender.setOnClickListener(::toGameEndMenu)
     }
 
     override fun onStart() {
@@ -103,10 +103,11 @@ class GameField : AppCompatActivity() {
     }
 
 
-    fun returnToMenu(view: View) {
+    fun toGameEndMenu(view: View) {
         player.stop()
 
-        val moveIntent = Intent(this, MainMenu::class.java)
+        val moveIntent = Intent(this, GameEnd::class.java)
+        moveIntent.putExtra("data_id", "LOSE")
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
     }
