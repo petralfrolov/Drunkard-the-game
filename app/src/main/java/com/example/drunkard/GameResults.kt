@@ -16,7 +16,6 @@ class GameResults : AppCompatActivity() {
         if (endIntent.hasExtra("data_id"))
             gameEndTextView.text = "You " + endIntent.getStringExtra("data_id")
         toMenuButton.setOnClickListener(::toMenu)
-        surrenderGameEndButton.setOnClickListener(::toMenuSurrender)
     }
 
     fun toMenu(view : View) {
@@ -24,12 +23,6 @@ class GameResults : AppCompatActivity() {
         startActivity(moveIntent)
     }
 
-    fun toMenuSurrender(view: View) {
-        val moveIntent = Intent(this, MainMenu::class.java)
-        startActivity(moveIntent)
-        val toast = Toast.makeText(this, "YOU LOSE", Toast.LENGTH_SHORT)
-        toast.show()
-    }
 
     override fun onStart() {
         super.onStart()

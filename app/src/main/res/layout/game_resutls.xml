@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="3"
+        android:weightSum="2"
 
         android:background="@drawable/table">
 
@@ -16,15 +16,6 @@
               android:layout_weight="1"
               android:text="Error"
               android:layout_gravity="center"/>
-
-    <Button android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:text = "Surrender"
-            android:layout_margin="10dp"
-            android:id="@+id/surrenderGameEndButton"
-            />
 
     <Button android:layout_width="fill_parent"
             android:layout_height="fill_parent"
