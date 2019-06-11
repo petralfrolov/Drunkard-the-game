@@ -59,9 +59,8 @@ class GameField : AppCompatActivity() {
         var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.game_theme)
         player.muted = muted
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
+
         loadImg(enemyDeck, "cards/back_turned.png")
         loadImg(yourDeck, "cards/back_turned.png")
 
@@ -75,9 +74,7 @@ class GameField : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
@@ -86,9 +83,7 @@ class GameField : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()

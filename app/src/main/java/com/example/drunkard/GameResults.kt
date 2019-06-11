@@ -15,11 +15,9 @@ class GameResults : AppCompatActivity() {
         setContentView(R.layout.game_resutls)
 
         var muted = intent.getBooleanExtra("Muted", false)
-        player = Player(this, R.raw.game_theme2)
+        player = Player(this, R.raw.game_theme)
         player.muted = muted
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         if (intent.hasExtra("Result"))
             gameEndTextView.text = "You " + intent.getStringExtra("Result")
@@ -30,9 +28,7 @@ class GameResults : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
@@ -41,9 +37,7 @@ class GameResults : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()

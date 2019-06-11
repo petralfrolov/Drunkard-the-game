@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.main_menu.*
 class MainMenu : AppCompatActivity() {
 
     lateinit var player : Player
+    lateinit var buttonClickPlayer : Player
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("Create", "OnCreate occured")
@@ -28,10 +30,9 @@ class MainMenu : AppCompatActivity() {
         var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.main_menu_theme)
         player.muted = muted
-        if (!player.muted) {
-            player.play()
-        }
-        else {
+        player.play()
+
+        if (player.muted){
             muteButton.setImageResource(R.drawable.muted)
         }
 
@@ -49,10 +50,22 @@ class MainMenu : AppCompatActivity() {
         playButton.setImageResource(R.drawable.play)
     }
 
+    override fun onPause() {
+        super.onPause()
+
+        player.stop()
+    }
+
     fun playButtonListener(view: View){
         playButton.setImageResource(R.drawable.play_pressed)
         view.refreshDrawableState()
+
+        buttonClickPlayer = Player(this, R.raw.click)
+        buttonClickPlayer.cancelLooping()
+        buttonClickPlayer.muted = player.muted
         player.stop()
+        buttonClickPlayer.play()
+
 
         val moveIntent = Intent (this, ModeSelect::class.java)
         moveIntent.putExtra("Muted", player.muted)

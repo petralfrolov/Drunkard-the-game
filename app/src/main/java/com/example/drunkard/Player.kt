@@ -13,14 +13,15 @@ class Player(context: Context, songID: Int) : Serializable{
     init{
         volume = 0.5f
         player = MediaPlayer.create(context, songID)
-        player.isLooping = true
         player.setVolume(volume, volume)
 
         muted = false
     }
 
     fun play() {
-        player.start()
+        if (!muted) {
+            player.start()
+        }
     }
 
     fun pause() {
@@ -33,5 +34,9 @@ class Player(context: Context, songID: Int) : Serializable{
 
     fun changeVolume(newVolume : Float){
         player.setVolume(newVolume, newVolume)
+    }
+
+    fun cancelLooping(){
+        player.isLooping = false
     }
 }

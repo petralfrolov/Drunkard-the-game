@@ -21,9 +21,7 @@ class ModeSelect : AppCompatActivity() {
         var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.prepare_music)
         player.muted = muted
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         val display = windowManager.defaultDisplay
         val size = Point()
@@ -39,9 +37,7 @@ class ModeSelect : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
 
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
@@ -50,9 +46,7 @@ class ModeSelect : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (!player.muted) {
-            player.play()
-        }
+        player.play()
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
