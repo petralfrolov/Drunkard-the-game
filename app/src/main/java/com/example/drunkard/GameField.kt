@@ -109,4 +109,8 @@ class GameField : AppCompatActivity() {
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
     }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
+    }
 }

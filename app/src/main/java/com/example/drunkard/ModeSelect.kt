@@ -65,11 +65,15 @@ class ModeSelect : AppCompatActivity() {
         player.stop()
     }
 
-    fun PvEgame(view: View){
+    fun PvEgame(view: View) {
         player.stop()
 
-        val moveIntent = Intent (this, GameField::class.java)
+        val moveIntent = Intent(this, GameField::class.java)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
+    }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
     }
 }

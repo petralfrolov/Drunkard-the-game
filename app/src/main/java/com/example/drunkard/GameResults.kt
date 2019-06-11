@@ -34,4 +34,8 @@ class GameResults : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
     }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
+    }
 }
