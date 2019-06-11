@@ -2,10 +2,8 @@ package com.example.drunkard
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -33,14 +31,14 @@ class GameField : AppCompatActivity() {
 
         if (!game.Turn()) {
             if (game.GetYourDeckSize() <= 0) {
-                val moveIntent = Intent(this, GameEnd::class.java)
+                val moveIntent = Intent(this, GameResults::class.java)
                 player.stop()
                 moveIntent.putExtra("data_id", "lose")
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this, "Game over", Toast.LENGTH_SHORT)
                 toast.show()
             } else {
-                val moveIntent = Intent(this, GameEnd::class.java)
+                val moveIntent = Intent(this, GameResults::class.java)
                 player.stop()
                 startActivity(moveIntent)
                 val toast = Toast.makeText(this, "Game win", Toast.LENGTH_SHORT)
@@ -106,7 +104,7 @@ class GameField : AppCompatActivity() {
     fun toGameEndMenu(view: View) {
         player.stop()
 
-        val moveIntent = Intent(this, GameEnd::class.java)
+        val moveIntent = Intent(this, GameResults::class.java)
         moveIntent.putExtra("data_id", "LOSE")
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
