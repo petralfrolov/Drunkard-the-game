@@ -71,15 +71,17 @@
 
                   android:layout_marginLeft="10dp"
 
-                  android:text="Enemy card: "
+                  android:text="Your card: "
                   android:textSize="25dp"
                   android:textColor="#FFFFFF"
                   app:fontFamily="@font/vt323"
         />
 
         <ImageView android:id="@+id/yourCardView"
-                   android:layout_width="107dp"
-                   android:layout_height="150dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+
+                   android:scaleType="fitXY"
 
                    android:layout_gravity="center_horizontal"
         />
@@ -96,6 +98,7 @@
                    android:layout_gravity="center_horizontal">
 
         </ImageView>
+
 
         <TextView android:id="@+id/yourDeckSize"
                   android:layout_width="fill_parent"
