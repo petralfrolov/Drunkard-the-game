@@ -62,8 +62,8 @@
 
             <ImageView android:id="@+id/yourCardView"
 
-                       android:layout_height="140dp"
-                       android:layout_width="100dp"
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
 
                        android:adjustViewBounds="true"
                        android:scaleType="fitXY"
@@ -82,8 +82,8 @@
 
             <ImageView android:id="@+id/enemyCardView"
 
-                       android:layout_height="140dp"
-                       android:layout_width="100dp"
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
 
                        android:adjustViewBounds="true"
                        android:scaleType="fitXY"
