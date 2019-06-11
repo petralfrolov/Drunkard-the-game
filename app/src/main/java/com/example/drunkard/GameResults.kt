@@ -5,13 +5,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_game_end.*
+import kotlinx.android.synthetic.main.game_resutls.*
 
-class GameEnd : AppCompatActivity() {
+class GameResults : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game_end)
+        setContentView(R.layout.game_resutls)
         var endIntent = intent
         if (endIntent.hasExtra("data_id"))
             gameEndTextView.text = "You " + endIntent.getStringExtra("data_id")
