@@ -27,10 +27,16 @@ class MainMenu : AppCompatActivity() {
         Log.d("Create", "OnStart occured")
         super.onStart()
 
+        // Background music player create
         var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.main_menu_theme)
         player.muted = muted
         player.play()
+
+        // Button click tune player create
+        buttonClickPlayer = Player(this, R.raw.click)
+        buttonClickPlayer.muted = muted
+        buttonClickPlayer.cancelLooping()
 
         if (player.muted){
             muteButton.setImageResource(R.drawable.muted)
@@ -60,12 +66,8 @@ class MainMenu : AppCompatActivity() {
         playButton.setImageResource(R.drawable.play_pressed)
         view.refreshDrawableState()
 
-        buttonClickPlayer = Player(this, R.raw.click)
-        buttonClickPlayer.cancelLooping()
-        buttonClickPlayer.muted = player.muted
         player.stop()
         buttonClickPlayer.play()
-
 
         val moveIntent = Intent (this, ModeSelect::class.java)
         moveIntent.putExtra("Muted", player.muted)
@@ -76,13 +78,20 @@ class MainMenu : AppCompatActivity() {
         if (!player.muted){
             muteButton.setImageResource(R.drawable.muted)
             view.refreshDrawableState()
+
             player.muted = true
+            buttonClickPlayer.muted = true
+
             player.pause()
         }
         else{
             muteButton.setImageResource(R.drawable.unmuted)
             view.refreshDrawableState()
+
             player.muted = false
+            buttonClickPlayer.muted = false
+
+            buttonClickPlayer.play()
             player.play()
         }
     }

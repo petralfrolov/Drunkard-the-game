@@ -23,15 +23,7 @@ class ModeSelect : AppCompatActivity() {
         player.muted = muted
         player.play()
 
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
-        val x = size.x
-        val y = size.y
-
-
         pveButton.setOnClickListener(::PvEgame)
-
     }
 
     override fun onRestart() {

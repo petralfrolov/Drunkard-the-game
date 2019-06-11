@@ -14,7 +14,7 @@ class Player(context: Context, songID: Int) : Serializable{
         volume = 0.5f
         player = MediaPlayer.create(context, songID)
         player.setVolume(volume, volume)
-
+        player.isLooping = true
         muted = false
     }
 

@@ -35,18 +35,14 @@ class GameField : AppCompatActivity() {
                 player.stop()
                 moveIntent.putExtra("data_id", "lose")
                 startActivity(moveIntent)
-                val toast = Toast.makeText(this, "Game over", Toast.LENGTH_SHORT)
-                toast.show()
-            } else {
+            }
+            else {
                 val moveIntent = Intent(this, GameResults::class.java)
                 player.stop()
                 startActivity(moveIntent)
-                val toast = Toast.makeText(this, "Game win", Toast.LENGTH_SHORT)
-                toast.show()
             }
         }
 
-        //Log.d("path", "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView,"cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
