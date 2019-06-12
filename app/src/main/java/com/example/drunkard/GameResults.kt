@@ -15,18 +15,28 @@ class GameResults : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_resutls)
-
+        var result = intent.getBooleanExtra("Result", false)
         var muted = intent.getBooleanExtra("Muted", false)
-        player = Player(this, R.raw.game_theme)
+
+        var source : Int
+        if (result) {
+            // win case
+            source = R.raw.win_theme
+        }
+        else{
+            // lose case
+            source = R.raw.defeat_theme
+        }
+        player = Player(this, source)
         player.muted = muted
+        player.cancelLooping()
         player.play()
 
         buttonClickPlayer = Player(this, R.raw.click)
         buttonClickPlayer.muted = muted
         buttonClickPlayer.cancelLooping()
 
-        if (intent.hasExtra("Result"))
-            gameEndTextView.text = "You " + intent.getStringExtra("Result")
+
 
         toMenuButton.setOnClickListener(::toMenu)
     }

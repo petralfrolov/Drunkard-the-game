@@ -15,10 +15,10 @@ import android.R.anim
 class GameField : AppCompatActivity() {
     var game = Drunkgame()
 
-    lateinit var player : Player
-    lateinit var buttonClickPlayer : Player
+    lateinit var player: Player
+    lateinit var buttonClickPlayer: Player
 
-    fun loadImg(view : View, path : String){
+    fun loadImg(view: View, path: String) {
         var ims = applicationContext.assets.open(path)
         var img = Drawable.createFromStream(ims, null)
         (view as ImageView).setImageDrawable(img)
@@ -80,7 +80,7 @@ class GameField : AppCompatActivity() {
 
     fun OnClickStartTurn(view: View) {
         var ims: InputStream
-        var card : Drawable
+        var card: Drawable
 
         buttonClickPlayer.play()
 
@@ -88,21 +88,20 @@ class GameField : AppCompatActivity() {
         enemyDeckSize.text = game.GetEnemyDeckSize().toString()
 
         if (!game.Turn()) {
+            var result = true
             if (game.GetYourDeckSize() <= 0) {
-                val moveIntent = Intent(this, GameResults::class.java)
-                player.stop()
-                moveIntent.putExtra("data_id", "lose")
-                startActivity(moveIntent)
+                result = false
             }
-            else {
-                val moveIntent = Intent(this, GameResults::class.java)
-                player.stop()
-                startActivity(moveIntent)
-            }
+
+            player.stop()
+
+            val moveIntent = Intent(this, GameResults::class.java)
+            moveIntent.putExtra("Result", result)
+            startActivity(moveIntent)
         }
 
-        loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
-        loadImg(enemyCardView,"cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
+        loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
+        loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
     }
 
