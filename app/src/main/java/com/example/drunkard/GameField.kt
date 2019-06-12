@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.game_field.*
 import java.io.InputStream
+import android.R.anim
+
 
 class GameField : AppCompatActivity() {
     var game = Drunkgame()
@@ -36,6 +38,11 @@ class GameField : AppCompatActivity() {
         buttonClickPlayer = Player(this, R.raw.click)
         buttonClickPlayer.muted = muted
         buttonClickPlayer.cancelLooping()
+
+        /*
+        val gifTable = GifDrawable(resources, R.drawable.anim)
+        table.setBackgroundResource()
+        */
 
         loadImg(enemyDeck, "cards/back_turned.png")
         loadImg(yourDeck, "cards/back_turned.png")
