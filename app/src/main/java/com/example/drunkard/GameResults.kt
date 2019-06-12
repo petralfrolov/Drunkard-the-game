@@ -21,10 +21,12 @@ class GameResults : AppCompatActivity() {
         var source : Int
         if (result) {
             // win case
+            gameEndTextView.setText("You win!")
             source = R.raw.win_theme
         }
         else{
             // lose case
+            gameEndTextView.setText("Game over")
             source = R.raw.defeat_theme
         }
         player = Player(this, source)
@@ -35,8 +37,6 @@ class GameResults : AppCompatActivity() {
         buttonClickPlayer = Player(this, R.raw.click)
         buttonClickPlayer.muted = muted
         buttonClickPlayer.cancelLooping()
-
-
 
         toMenuButton.setOnClickListener(::toMenu)
     }

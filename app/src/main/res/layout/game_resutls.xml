@@ -6,22 +6,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="2"
+        android:weightSum="3"
 
         android:background="@drawable/table">
 
-    <TextView android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:id="@+id/gameEndTextView"
-              android:layout_weight="1"
-              android:text="Error"
-              android:layout_gravity="center"/>
+    <TextView android:id="@+id/gameEndTextView"
 
-    <Button android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="100dp"
+              android:layout_weight="2"
+
+              android:layout_gravity="center"
+
+              android:textSize="100sp"
+              android:textColor="#FFFFFF"
+              app:fontFamily="@font/vt323"
+    />
+
+    <Button android:id="@+id/toMenuButton"
+
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
             android:layout_weight="1"
-            android:text="Menu"
+
+            android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:id="@+id/toMenuButton"/>
+
+            android:text="Back to Menu"
+            android:textSize="70sp"
+            app:fontFamily="@font/vt323"
+            />
 </LinearLayout>
