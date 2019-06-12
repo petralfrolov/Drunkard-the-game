@@ -41,7 +41,7 @@ class GameField : AppCompatActivity() {
 
         /*
         val gifTable = GifDrawable(resources, R.drawable.anim)
-        table.setBackgroundResource()
+        tableanim.setBackgroundResource()
         */
 
         loadImg(enemyDeck, "cards/back_turned.png")
