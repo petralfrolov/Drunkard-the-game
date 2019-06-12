@@ -12,7 +12,9 @@ import java.io.InputStream
 
 class GameField : AppCompatActivity() {
     var game = Drunkgame()
+
     lateinit var player : Player
+    lateinit var buttonClickPlayer : Player
 
     fun loadImg(view : View, path : String){
         var ims = applicationContext.assets.open(path)
@@ -21,32 +23,6 @@ class GameField : AppCompatActivity() {
         yourCardView.refreshDrawableState()
     }
 
-    fun OnClickStartTurn(view: View) {
-        var ims: InputStream
-        var card : Drawable
-
-
-        yourDeckSize.text = game.GetYourDeckSize().toString()
-        enemyDeckSize.text = game.GetEnemyDeckSize().toString()
-
-        if (!game.Turn()) {
-            if (game.GetYourDeckSize() <= 0) {
-                val moveIntent = Intent(this, GameResults::class.java)
-                player.stop()
-                moveIntent.putExtra("data_id", "lose")
-                startActivity(moveIntent)
-            }
-            else {
-                val moveIntent = Intent(this, GameResults::class.java)
-                player.stop()
-                startActivity(moveIntent)
-            }
-        }
-
-        loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
-        loadImg(enemyCardView,"cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +32,10 @@ class GameField : AppCompatActivity() {
         player = Player(this, R.raw.game_theme)
         player.muted = muted
         player.play()
+
+        buttonClickPlayer = Player(this, R.raw.click)
+        buttonClickPlayer.muted = muted
+        buttonClickPlayer.cancelLooping()
 
         loadImg(enemyDeck, "cards/back_turned.png")
         loadImg(yourDeck, "cards/back_turned.png")
@@ -91,9 +71,37 @@ class GameField : AppCompatActivity() {
         player.stop()
     }
 
+    fun OnClickStartTurn(view: View) {
+        var ims: InputStream
+        var card : Drawable
+
+        buttonClickPlayer.play()
+
+        yourDeckSize.text = game.GetYourDeckSize().toString()
+        enemyDeckSize.text = game.GetEnemyDeckSize().toString()
+
+        if (!game.Turn()) {
+            if (game.GetYourDeckSize() <= 0) {
+                val moveIntent = Intent(this, GameResults::class.java)
+                player.stop()
+                moveIntent.putExtra("data_id", "lose")
+                startActivity(moveIntent)
+            }
+            else {
+                val moveIntent = Intent(this, GameResults::class.java)
+                player.stop()
+                startActivity(moveIntent)
+            }
+        }
+
+        loadImg(yourCardView,"cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
+        loadImg(enemyCardView,"cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
+
+    }
 
     fun toGameEndMenu(view: View) {
         player.stop()
+        buttonClickPlayer.play()
 
         val moveIntent = Intent(this, GameResults::class.java)
         moveIntent.putExtra("Result", "LOSE")

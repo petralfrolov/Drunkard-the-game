@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.mode_select.*
 class ModeSelect : AppCompatActivity() {
 
     lateinit var player : Player
+    lateinit var buttonClickPlayer : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,10 @@ class ModeSelect : AppCompatActivity() {
         player = Player(this, R.raw.prepare_music)
         player.muted = muted
         player.play()
+
+        buttonClickPlayer = Player(this, R.raw.click)
+        buttonClickPlayer.muted = muted
+        buttonClickPlayer.cancelLooping()
 
         pveButton.setOnClickListener(::PvEgame)
     }
@@ -53,6 +58,7 @@ class ModeSelect : AppCompatActivity() {
 
     fun PvEgame(view: View) {
         player.stop()
+        buttonClickPlayer.play()
 
         val moveIntent = Intent(this, GameField::class.java)
         moveIntent.putExtra("Muted", player.muted)

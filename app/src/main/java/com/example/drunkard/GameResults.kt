@@ -8,7 +8,9 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.game_resutls.*
 
 class GameResults : AppCompatActivity() {
+
     lateinit var player : Player
+    lateinit var buttonClickPlayer : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +20,10 @@ class GameResults : AppCompatActivity() {
         player = Player(this, R.raw.game_theme)
         player.muted = muted
         player.play()
+
+        buttonClickPlayer = Player(this, R.raw.click)
+        buttonClickPlayer.muted = muted
+        buttonClickPlayer.cancelLooping()
 
         if (intent.hasExtra("Result"))
             gameEndTextView.text = "You " + intent.getStringExtra("Result")
@@ -50,6 +56,8 @@ class GameResults : AppCompatActivity() {
     }
 
     fun toMenu(view : View) {
+        buttonClickPlayer.play()
+
         val moveIntent = Intent(this, MainMenu::class.java)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
