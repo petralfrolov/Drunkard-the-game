@@ -88,7 +88,10 @@ class PVEGameField : AppCompatActivity() {
 
         yourDeckSize.text = game.GetYourDeckSize().toString()
         enemyDeckSize.text = game.GetEnemyDeckSize().toString()
-
+        if (game.GetYourCurDeckSize() <= 0)
+            yourCardView.setAlpha(0)
+        if (game.GetEnemyCurDeckSize() <= 0)
+            enemyCardView.setAlpha(0)
         if (!game.Turn()) {
             var result = true
             if (game.GetYourDeckSize() <= 0) {
@@ -101,7 +104,7 @@ class PVEGameField : AppCompatActivity() {
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
-
+        
         loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
