@@ -8,6 +8,10 @@ import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.pve_game_field.*
 import java.io.InputStream
+import android.R.attr.button
+import android.view.animation.TranslateAnimation
+
+
 
 
 class PVEGameField : AppCompatActivity() {
@@ -47,6 +51,7 @@ class PVEGameField : AppCompatActivity() {
 
         yourDeckSize.text = game.GetYourDeckSize().toString()
         enemyDeckSize.text = game.GetEnemyDeckSize().toString()
+
 
         turn.setOnClickListener(::OnClickStartTurn)
         surrender.setOnClickListener(::toGameEndMenu)
@@ -101,6 +106,10 @@ class PVEGameField : AppCompatActivity() {
         loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
+        val animation = TranslateAnimation(yourDeck.x, yourDeck.y, yourCardField.x, yourCardField.y)
+        animation.duration = 1000 // duartion in ms
+        animation.fillAfter = false
+        yourCardView.startAnimation(animation)
     }
 
     fun toGameEndMenu(view: View) {
