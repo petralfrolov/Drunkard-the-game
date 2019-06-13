@@ -100,7 +100,8 @@
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="1dp"
+            <LinearLayout android:id="@+id/CardField1"
+                          android:layout_width="1dp"
                           android:layout_weight="1"
                           android:layout_height="fill_parent">
                 <ImageView android:id="@+id/CardView2"
@@ -119,14 +120,15 @@
             </LinearLayout>
 
 
-            <LinearLayout android:layout_width="1dp"
+            <LinearLayout android:id="@+id/CardField2"
+                          android:layout_width="1dp"
                           android:layout_weight="1"
                           android:layout_height="fill_parent">
                 <ImageView android:id="@+id/CardView1"
 
                            android:layout_height="fill_parent"
                            android:layout_width="fill_parent"
-                            android:rotation="180"
+                           android:rotation="180"
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
                            android:layout_marginStart="20dp"

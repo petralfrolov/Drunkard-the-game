@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.pve_game_field.*
 import java.io.InputStream
@@ -23,7 +24,7 @@ class PVEGameField : AppCompatActivity() {
         var ims = applicationContext.assets.open(path)
         var img = Drawable.createFromStream(ims, null)
         (view as ImageView).setImageDrawable(img)
-        yourCardView.refreshDrawableState()
+        view.refreshDrawableState()
     }
 
 
@@ -95,7 +96,7 @@ class PVEGameField : AppCompatActivity() {
         if (!game.Turn()) {
             var result = true
             if (game.GetYourDeckSize() <= 0) {
-                result = false
+                result =false
             }
 
             player.stop()
@@ -108,10 +109,17 @@ class PVEGameField : AppCompatActivity() {
         loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
-        val animation = TranslateAnimation(yourDeck.x, yourDeck.y, yourCardField.x, yourCardField.y)
-        animation.duration = 1000 // duartion in ms
-        animation.fillAfter = false
-        yourCardView.startAnimation(animation)
+
+        val animationYour = TranslateAnimation(yourDeck.x, yourDeck.y, yourCardField.x, yourCardField.y)
+        animationYour.duration = 1000 // duartion in ms
+        animationYour.fillAfter = false
+        val animationEnemy = TranslateAnimation(enemyDeck.x, enemyDeck.y, enemyCardField.x, enemyCardField.y)
+        animationEnemy.duration = 1000 // duartion in ms
+        animationEnemy.fillAfter = false
+
+        yourCardView.startAnimation(animationYour)
+        enemyCardView.startAnimation(animationEnemy)
+
     }
 
     fun toGameEndMenu(view: View) {
