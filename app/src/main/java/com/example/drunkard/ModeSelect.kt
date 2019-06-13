@@ -29,6 +29,7 @@ class ModeSelect : AppCompatActivity() {
         buttonClickPlayer.cancelLooping()
 
         pveButton.setOnClickListener(::PvEgame)
+        pvpButton.setOnClickListener(::PvPgame)
     }
 
     override fun onRestart() {
@@ -61,6 +62,15 @@ class ModeSelect : AppCompatActivity() {
         buttonClickPlayer.play()
 
         val moveIntent = Intent(this, GameField::class.java)
+        moveIntent.putExtra("Muted", player.muted)
+        startActivity(moveIntent)
+    }
+
+    fun PvPgame(view: View) {
+        player.stop()
+        buttonClickPlayer.play()
+
+        val moveIntent = Intent(this, PVPGameField::class.java)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
     }
