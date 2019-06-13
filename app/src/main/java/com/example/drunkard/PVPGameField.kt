@@ -96,7 +96,7 @@ class PVPGameField : AppCompatActivity() {
 
             player.stop()
 
-            val moveIntent = Intent(this, PVEGameResults::class.java)
+            val moveIntent = Intent(this, PVPGameResults::class.java)
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
@@ -146,7 +146,7 @@ class PVPGameField : AppCompatActivity() {
         player.stop()
         buttonClickPlayer.play()
 
-        val moveIntent = Intent(this, PVEGameResults::class.java)
+        val moveIntent = Intent(this, PVPGameResults::class.java)
         moveIntent.putExtra("Result", false)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
@@ -156,7 +156,7 @@ class PVPGameField : AppCompatActivity() {
         player.stop()
         buttonClickPlayer.play()
 
-        val moveIntent = Intent(this, PVEGameResults::class.java)
+        val moveIntent = Intent(this, PVPGameResults::class.java)
         moveIntent.putExtra("Result", true)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
