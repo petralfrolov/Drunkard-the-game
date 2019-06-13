@@ -65,6 +65,8 @@ class PVPDrunkGame() {
     }
 
     fun EndTurn() : Boolean {
+        if (CurDeck1.GetDeckSize() != CurDeck2.GetDeckSize())
+            return true
         if (isCardBigger(Card1, Card2) > 0) {
             MergeDecks(Deck1, CurDeck1)
             MergeDecks(Deck1, CurDeck2)

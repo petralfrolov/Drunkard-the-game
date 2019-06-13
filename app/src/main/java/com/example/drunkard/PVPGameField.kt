@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import kotlinx.android.synthetic.main.activity_pvpgame_field.*
-import kotlinx.android.synthetic.main.game_field.*
+import kotlinx.android.synthetic.main.pvp_game_field.*
 import java.io.InputStream
 
 class PVPGameField : AppCompatActivity() {
@@ -24,7 +23,7 @@ class PVPGameField : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pvpgame_field)
+        setContentView(R.layout.pvp_game_field)
 
         var muted = intent.getBooleanExtra("Muted", false)
         player = Player(this, R.raw.game_theme)
@@ -98,6 +97,8 @@ class PVPGameField : AppCompatActivity() {
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
+        DeckSize1.text = game.GetDeckSize1().toString()
+        DeckSize2.text = game.GetDeckSize2().toString()
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         //loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
@@ -126,6 +127,8 @@ class PVPGameField : AppCompatActivity() {
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
+        DeckSize1.text = game.GetDeckSize1().toString()
+        DeckSize2.text = game.GetDeckSize2().toString()
 
         //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
