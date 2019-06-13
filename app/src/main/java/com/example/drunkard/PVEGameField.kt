@@ -51,12 +51,12 @@ class PVEGameField : AppCompatActivity() {
         tableanim.setBackgroundResource()
         */
 
-        loadImg(enemyDeck, "cards/back_turned.png")
-        loadImg(yourDeck, "cards/back_turned.png")
 
         yourDeckSize.text = game.GetYourDeckSize().toString()
         enemyDeckSize.text = game.GetEnemyDeckSize().toString()
 
+        loadImg(yourDeckView, "cards/back.png")
+        loadImg(enemyDeckView, "cards/back.png")
 
         turn.setOnClickListener(::OnClickStartTurn)
         surrender.setOnClickListener(::toGameEndMenu)
@@ -118,6 +118,7 @@ class PVEGameField : AppCompatActivity() {
         loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
+
         val animationYourMove = TranslateAnimation(
             -yourCardField.width.toFloat() + yourCardView.width,
             0f,
@@ -126,10 +127,6 @@ class PVEGameField : AppCompatActivity() {
         )
         animationYourMove.duration = 500
         animationYourMove.fillAfter = false
-
-        val animationYourScale = ScaleAnimation(0.5f, 1f, 0.5f, 1f)
-        animationYourScale.duration = 50
-        animationYourScale.fillAfter = false
 
         val animationEnemyMove = TranslateAnimation(
             yourCardField.width.toFloat() - enemyCardView.width,
@@ -141,7 +138,6 @@ class PVEGameField : AppCompatActivity() {
         animationEnemyMove.fillAfter = false
 
         yourCardView.startAnimation(animationYourMove)
-        yourCardView.startAnimation(animationYourScale)
         enemyCardView.startAnimation(animationEnemyMove)
     }
 
