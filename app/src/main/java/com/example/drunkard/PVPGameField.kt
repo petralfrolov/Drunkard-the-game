@@ -82,9 +82,9 @@ class PVPGameField : AppCompatActivity() {
         buttonClickPlayer.play()
 
         if (game.GetCurDeckSize1() <= 0)
-            loadImg(CardView1, "cards/back_turned.png")
+            CardView1.setAlpha(0)
         if (game.GetCurDeckSize2() <= 0)
-            loadImg(CardView2, "cards/back_turned.png")
+            CardView2.setAlpha(0)
         game.StartTurn1()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
@@ -114,9 +114,9 @@ class PVPGameField : AppCompatActivity() {
         var card: Drawable
         buttonClickPlayer.play()
         if (game.GetCurDeckSize1() <= 0)
-            loadImg(CardView1, "cards/back_turned.png")
+            CardView1.setAlpha(0)
         if (game.GetCurDeckSize2() <= 0)
-            loadImg(CardView2, "cards/back_turned.png")
+            CardView2.setAlpha(0)
 
         game.StartTurn2()
         DeckSize1.text = game.GetDeckSize1().toString()
