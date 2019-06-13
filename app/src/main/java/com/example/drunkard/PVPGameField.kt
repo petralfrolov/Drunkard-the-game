@@ -76,15 +76,16 @@ class PVPGameField : AppCompatActivity() {
         player.stop()
     }
 
-        fun OnClickStartTurn1(view: View) {
+    fun OnClickStartTurn1(view: View) {
         var ims: InputStream
         var card: Drawable
 
-        //buttonClickPlayer.play()
+        buttonClickPlayer.play()
 
+
+        game.StartTurn1()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
-        game.StartTurn1()
         if (!game.EndTurn()) {
             var result = true
             if (game.GetDeckSize1() <= 0) {
@@ -103,15 +104,16 @@ class PVPGameField : AppCompatActivity() {
 
     }
 
-        fun OnClickStartTurn2(view: View) {
+    fun OnClickStartTurn2(view: View) {
         var ims: InputStream
         var card: Drawable
 
         buttonClickPlayer.play()
 
+
+        game.StartTurn2()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
-        game.StartTurn2()
         if (!game.EndTurn()) {
             var result = true
             if (game.GetDeckSize1() <= 0) {
@@ -126,13 +128,13 @@ class PVPGameField : AppCompatActivity() {
         }
 
         //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
-        loadImg(enemyCardView, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
+        loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
 
     }
 
     fun toGameEndMenu(view: View) {
-        //player.stop()
-        //buttonClickPlayer.play()
+        player.stop()
+        buttonClickPlayer.play()
 
         val moveIntent = Intent(this, GameResults::class.java)
         moveIntent.putExtra("Result", "LOSE")

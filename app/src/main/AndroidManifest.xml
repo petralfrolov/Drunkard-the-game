@@ -17,7 +17,7 @@
                 android:screenOrientation="landscape">
         </activity>
         <activity
-                android:name=".GameField"
+                android:name=".PVEGameField"
                 android:screenOrientation="landscape">
         </activity>
         <activity
