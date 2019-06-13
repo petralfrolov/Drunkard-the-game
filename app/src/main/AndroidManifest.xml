@@ -9,7 +9,8 @@
             android:roundIcon="@drawable/icon_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".PVPGameResults">
+        <activity android:name=".PVPGameResults"
+                  android:screenOrientation="landscape">
         </activity>
         <activity
                 android:name=".PVPGameField"
