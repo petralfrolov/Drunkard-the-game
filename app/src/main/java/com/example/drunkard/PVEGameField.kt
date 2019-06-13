@@ -89,10 +89,14 @@ class PVEGameField : AppCompatActivity() {
 
         yourDeckSize.text = game.GetYourDeckSize().toString()
         enemyDeckSize.text = game.GetEnemyDeckSize().toString()
+
+        /*
         if (game.GetYourCurDeckSize() <= 0)
             yourCardView.setAlpha(0)
         if (game.GetEnemyCurDeckSize() <= 0)
             enemyCardView.setAlpha(0)
+        */
+
         if (!game.Turn()) {
             var result = true
             if (game.GetYourDeckSize() <= 0) {

@@ -82,10 +82,13 @@ class PVPGameField : AppCompatActivity() {
 
         buttonClickPlayer.play()
 
+        /*
         if (game.GetCurDeckSize1() <= 0)
             CardView1.setAlpha(0)
         if (game.GetCurDeckSize2() <= 0)
             CardView2.setAlpha(0)
+        */
+
         game.StartTurn1()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
@@ -104,10 +107,13 @@ class PVPGameField : AppCompatActivity() {
 
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
+
+        /*
         if (game.GetCurDeckSize1() > 0)
             CardView1.setAlpha(255)
         if (game.GetCurDeckSize2() > 0)
             CardView2.setAlpha(255)
+        */
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
 
@@ -124,10 +130,13 @@ class PVPGameField : AppCompatActivity() {
         var ims: InputStream
         var card: Drawable
         buttonClickPlayer.play()
+
+        /*
         if (game.GetCurDeckSize1() <= 0)
             CardView1.setAlpha(0)
         if (game.GetCurDeckSize2() <= 0)
             CardView2.setAlpha(0)
+        */
 
         game.StartTurn2()
         DeckSize1.text = game.GetDeckSize1().toString()
@@ -146,10 +155,13 @@ class PVPGameField : AppCompatActivity() {
         }
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
+
+        /*
         if (game.GetCurDeckSize1() > 0)
             CardView1.setAlpha(255)
         if (game.GetCurDeckSize2() > 0)
             CardView2.setAlpha(255)
+        */
 
         //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
