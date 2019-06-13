@@ -10,6 +10,10 @@ import android.widget.ImageView
 import kotlinx.android.synthetic.main.pve_game_field.*
 import java.io.InputStream
 import android.view.animation.TranslateAnimation
+import android.R.attr.y
+import android.R.attr.x
+import android.graphics.Point
+import android.view.Display
 
 
 
@@ -113,11 +117,16 @@ class PVEGameField : AppCompatActivity() {
         loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        val width = size.x.toFloat()
+        val height = size.y.toFloat()
 
-        val animationYour = TranslateAnimation(yourDeck.x, yourDeck.y, yourCardField.x, yourCardField.y)
+        val animationYour = TranslateAnimation(-1000f, 0f, 1000f, 0f)
         animationYour.duration = 1000 // duartion in ms
         animationYour.fillAfter = false
-        val animationEnemy = TranslateAnimation(enemyDeck.x, enemyDeck.y, enemyCardField.x, enemyCardField.y)
+        val animationEnemy = TranslateAnimation(1000f, 0f, -1000f,  0f)
         animationEnemy.duration = 1000 // duartion in ms
         animationEnemy.fillAfter = false
 
