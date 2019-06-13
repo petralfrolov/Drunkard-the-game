@@ -103,7 +103,7 @@
             <LinearLayout android:layout_width="1dp"
                           android:layout_weight="1"
                           android:layout_height="fill_parent">
-                <ImageView android:id="@+id/CardView1"
+                <ImageView android:id="@+id/CardView2"
 
                            android:layout_height="fill_parent"
                            android:layout_width="fill_parent"
@@ -121,7 +121,7 @@
             <LinearLayout android:layout_width="1dp"
                           android:layout_weight="1"
                           android:layout_height="fill_parent">
-                <ImageView android:id="@+id/CardView2"
+                <ImageView android:id="@+id/CardView1"
 
                            android:layout_height="fill_parent"
                            android:layout_width="fill_parent"
