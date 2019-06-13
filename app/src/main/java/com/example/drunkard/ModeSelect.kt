@@ -1,11 +1,8 @@
 package com.example.drunkard
 
 import android.content.Intent
-import android.graphics.Point
-import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.mode_select.*
 
@@ -61,7 +58,7 @@ class ModeSelect : AppCompatActivity() {
         player.stop()
         buttonClickPlayer.play()
 
-        val moveIntent = Intent(this, GameField::class.java)
+        val moveIntent = Intent(this, PVEGameField::class.java)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
     }

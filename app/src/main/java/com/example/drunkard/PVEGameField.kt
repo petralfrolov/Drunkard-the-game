@@ -12,7 +12,7 @@ import java.io.InputStream
 import android.R.anim
 
 
-class GameField : AppCompatActivity() {
+class PVEGameField : AppCompatActivity() {
     var game = Drunkgame()
 
     lateinit var player: Player
