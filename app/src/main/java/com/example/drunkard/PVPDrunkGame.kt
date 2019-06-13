@@ -87,4 +87,12 @@ class PVPDrunkGame() {
     fun GetDeckSize2() : Int {
         return Deck2.GetDeckSize()
     }
+
+    fun GetCurDeckSize1() : Int {
+        return CurDeck1.GetDeckSize()
+    }
+
+    fun GetCurDeckSize2() : Int {
+        return CurDeck2.GetDeckSize()
+    }
 }
