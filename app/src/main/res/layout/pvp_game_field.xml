@@ -126,7 +126,7 @@
 
                            android:layout_height="fill_parent"
                            android:layout_width="fill_parent"
-
+                            android:rotation="180"
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
                            android:layout_marginStart="20dp"

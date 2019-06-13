@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.pve_game_field.*
 import java.io.InputStream
-import android.R.attr.button
 import android.view.animation.TranslateAnimation
 
 
@@ -98,7 +97,7 @@ class PVEGameField : AppCompatActivity() {
 
             player.stop()
 
-            val moveIntent = Intent(this, GameResults::class.java)
+            val moveIntent = Intent(this, PVEGameResults::class.java)
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
@@ -116,7 +115,7 @@ class PVEGameField : AppCompatActivity() {
         player.stop()
         buttonClickPlayer.play()
 
-        val moveIntent = Intent(this, GameResults::class.java)
+        val moveIntent = Intent(this, PVEGameResults::class.java)
         moveIntent.putExtra("Result", false)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)

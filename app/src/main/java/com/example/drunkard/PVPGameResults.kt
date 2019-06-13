@@ -4,29 +4,31 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import kotlinx.android.synthetic.main.game_resutls.*
+import kotlinx.android.synthetic.main.pve_game_resutls.*
+import kotlinx.android.synthetic.main.pvp_game_results.*
 
-class GameResults : AppCompatActivity() {
+class PVPGameResults : AppCompatActivity() {
 
     lateinit var player : Player
     lateinit var buttonClickPlayer : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.game_resutls)
+        setContentView(R.layout.pvp_game_results)
         var result = intent.getBooleanExtra("Result", false)
         var muted = intent.getBooleanExtra("Muted", false)
 
         var source : Int
         if (result) {
             // win case
-            gameEndTextView.setText("You win!")
+            gameEndTextView1.setText("You win!")
+            gameEndTextView2.setText("You lose")
             source = R.raw.win_theme
         }
         else{
             // lose case
-            gameEndTextView.setText("Game over")
+            gameEndTextView1.setText("You lose")
+            gameEndTextView2.setText("You win!")
             source = R.raw.defeat_theme
         }
         player = Player(this, source)
@@ -38,9 +40,8 @@ class GameResults : AppCompatActivity() {
         buttonClickPlayer.muted = muted
         buttonClickPlayer.cancelLooping()
 
-        toMenuButton.setOnClickListener(::toMenu)
+        toMenuButtonPVP.setOnClickListener(::toMenu)
     }
-
     override fun onStart() {
         super.onStart()
 

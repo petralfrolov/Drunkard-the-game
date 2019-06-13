@@ -47,8 +47,8 @@ class PVPGameField : AppCompatActivity() {
 
         turn1.setOnClickListener(::OnClickStartTurn1)
         turn2.setOnClickListener(::OnClickStartTurn2)
-        surrender1.setOnClickListener(::toGameEndMenu)
-        surrender2.setOnClickListener(::toGameEndMenu)
+        surrender1.setOnClickListener(::toGameEndMenu1)
+        surrender2.setOnClickListener(::toGameEndMenu2)
     }
 
     override fun onStart() {
@@ -96,7 +96,7 @@ class PVPGameField : AppCompatActivity() {
 
             player.stop()
 
-            val moveIntent = Intent(this, GameResults::class.java)
+            val moveIntent = Intent(this, PVEGameResults::class.java)
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
@@ -112,7 +112,6 @@ class PVPGameField : AppCompatActivity() {
     fun OnClickStartTurn2(view: View) {
         var ims: InputStream
         var card: Drawable
-
         buttonClickPlayer.play()
         if (game.GetCurDeckSize1() <= 0)
             loadImg(CardView1, "cards/back_turned.png")
@@ -130,7 +129,7 @@ class PVPGameField : AppCompatActivity() {
 
             player.stop()
 
-            val moveIntent = Intent(this, GameResults::class.java)
+            val moveIntent = Intent(this, PVPGameResults::class.java)
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
@@ -143,12 +142,22 @@ class PVPGameField : AppCompatActivity() {
 
     }
 
-    fun toGameEndMenu(view: View) {
+    fun toGameEndMenu1(view: View) {
         player.stop()
         buttonClickPlayer.play()
 
-        val moveIntent = Intent(this, GameResults::class.java)
-        moveIntent.putExtra("Result", "LOSE")
+        val moveIntent = Intent(this, PVEGameResults::class.java)
+        moveIntent.putExtra("Result", false)
+        moveIntent.putExtra("Muted", player.muted)
+        startActivity(moveIntent)
+    }
+
+    fun toGameEndMenu2(view: View) {
+        player.stop()
+        buttonClickPlayer.play()
+
+        val moveIntent = Intent(this, PVEGameResults::class.java)
+        moveIntent.putExtra("Result", true)
         moveIntent.putExtra("Muted", player.muted)
         startActivity(moveIntent)
     }
