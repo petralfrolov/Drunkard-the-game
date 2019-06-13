@@ -13,9 +13,10 @@ import android.view.animation.TranslateAnimation
 import android.R.attr.y
 import android.R.attr.x
 import android.graphics.Point
+import android.util.Log
 import android.view.Display
-
-
+import android.view.animation.RotateAnimation
+import android.view.animation.ScaleAnimation
 
 
 class PVEGameField : AppCompatActivity() {
@@ -104,7 +105,7 @@ class PVEGameField : AppCompatActivity() {
         if (!game.Turn()) {
             var result = true
             if (game.GetYourDeckSize() <= 0) {
-                result =false
+                result = false
             }
 
             player.stop()
@@ -113,26 +114,35 @@ class PVEGameField : AppCompatActivity() {
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
-        
+
         loadImg(yourCardView, "cards/${game.yourCard.GetCardType()}/${game.yourCard.GetCardName()}.png")
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
-        val width = size.x.toFloat()
-        val height = size.y.toFloat()
+        val animationYourMove = TranslateAnimation(
+            -yourCardField.width.toFloat() + yourCardView.width,
+            0f,
+            yourCardField.height.toFloat() / 2 - yourCardView.height / 2,
+            0f
+        )
+        animationYourMove.duration = 500
+        animationYourMove.fillAfter = false
 
-        val animationYour = TranslateAnimation(-1000f, 0f, 1000f, 0f)
-        animationYour.duration = 1000 // duartion in ms
-        animationYour.fillAfter = false
-        val animationEnemy = TranslateAnimation(1000f, 0f, -1000f,  0f)
-        animationEnemy.duration = 1000 // duartion in ms
-        animationEnemy.fillAfter = false
+        val animationYourScale = ScaleAnimation(0.5f, 1f, 0.5f, 1f)
+        animationYourScale.duration = 50
+        animationYourScale.fillAfter = false
 
-        yourCardView.startAnimation(animationYour)
-        enemyCardView.startAnimation(animationEnemy)
+        val animationEnemyMove = TranslateAnimation(
+            yourCardField.width.toFloat() - enemyCardView.width,
+            0f,
+            yourCardField.height.toFloat() / 2 - enemyCardView.height / 2,
+            0f
+        )
+        animationEnemyMove.duration = 500
+        animationEnemyMove.fillAfter = false
 
+        yourCardView.startAnimation(animationYourMove)
+        yourCardView.startAnimation(animationYourScale)
+        enemyCardView.startAnimation(animationEnemyMove)
     }
 
     fun toGameEndMenu(view: View) {
