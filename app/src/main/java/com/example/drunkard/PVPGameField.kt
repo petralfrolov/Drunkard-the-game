@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.pvp_game_field.*
@@ -117,11 +118,16 @@ class PVPGameField : AppCompatActivity() {
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
 
-        val animation1 = TranslateAnimation(Deck1.x, Deck1.y, CardField1.x, CardField1.y)
-        animation1.duration = 1000 // duartion in ms
-        animation1.fillAfter = false
+        val animationMove = TranslateAnimation(
+            -CardField1.width.toFloat() + CardView1.width,
+            0f,
+            CardField1.height.toFloat() / 2 - CardView1.height / 2,
+            0f
+        )
+        animationMove.duration = 500
+        animationMove.fillAfter = false
 
-        CardView1.startAnimation(animation1)
+        CardView1.startAnimation(animationMove)
         //loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
     }
@@ -166,11 +172,16 @@ class PVPGameField : AppCompatActivity() {
         //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
 
-        val animation2 = TranslateAnimation(Deck2.x, Deck2.y, CardField2.x, CardField2.y)
-        animation2.duration = 1000 // duartion in ms
-        animation2.fillAfter = false
+        val animationMove = TranslateAnimation(
+            CardField1.width.toFloat() - CardView2.width,
+            0f,
+            CardField1.height.toFloat() / 2 - CardView2.height / 2,
+            0f
+        )
+        animationMove.duration = 500
+        animationMove.fillAfter = false
 
-        CardView2.startAnimation(animation2)
+        CardView2.startAnimation(animationMove)
 
     }
 
