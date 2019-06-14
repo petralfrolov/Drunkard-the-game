@@ -114,7 +114,7 @@ class PVPGameField : AppCompatActivity() {
         if (game.GetCurDeckSize2() > 0)
             CardView2.setAlpha(255)
         */
-        Thread.sleep(1000)
+        //Thread.sleep(1000)
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
 

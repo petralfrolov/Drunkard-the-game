@@ -21,195 +21,189 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
 
-            android:layout_columnWeight="5">
+            android:layout_columnWeight="13">
 
-
-        <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_weight="1">
-            <Button android:id="@+id/surrender1"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:rotation="180"
-                    android:text="Surrender"
-                    android:textSize="30dp"
-                    app:fontFamily="@font/vt323"
-            />
-
-
-            <ImageView android:id="@+id/Deck1"
-
-                       android:layout_height="wrap_content"
-                       android:layout_width="130dp"
-
-                       android:adjustViewBounds="true"
-                       android:scaleType="fitXY"
-
-                       app:layout_constraintRight_toRightOf="parent"
-                       app:layout_constraintTop_toTopOf="parent"
-                       app:layout_constraintBottom_toBottomOf="parent">
-            </ImageView>
-            <Button android:id="@+id/turn1"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:rotation="180"
-                    android:text="Start turn"
-                    android:textSize="30dp"
-                    app:fontFamily="@font/vt323">
-
-            </Button>
-            <TextView android:id="@+id/DeckSize1"
-
-                      android:layout_width="wrap_content"
-                      android:layout_height="100dp"
-                      android:rotation="180"
-                      app:layout_constraintRight_toLeftOf="@id/Deck1"
-                      app:layout_constraintTop_toTopOf="parent"
-                      app:layout_constraintBottom_toBottomOf="parent"
-
-                      android:textSize="50sp"
-                      android:textColor="#FFFFFF"
-                      app:fontFamily="@font/vt323"
-            />
-
-
-        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_weight="3"
+                android:layout_weight="10"
 
-                android:weightSum="4"
+                android:weightSum="28"
                 android:orientation="horizontal">
 
 
             <LinearLayout android:layout_width="1dp"
-                          android:layout_weight="1"
+                          android:layout_weight="5"
                           android:layout_height="fill_parent">
 
             </LinearLayout>
 
-            <LinearLayout android:id="@+id/CardField1"
-                          android:layout_width="1dp"
-                          android:layout_weight="1"
-                          android:layout_height="fill_parent">
-                <ImageView android:id="@+id/CardView2"
+            <android.support.constraint.ConstraintLayout
+                    android:id="@+id/CardField1"
 
-                           android:layout_height="fill_parent"
-                           android:layout_width="fill_parent"
-
-                           android:adjustViewBounds="true"
-                           android:scaleType="fitXY"
-                           android:layout_marginEnd="20dp"
-
-                           app:layout_constraintRight_toRightOf="parent"
-                           app:layout_constraintTop_toTopOf="parent"
-                           app:layout_constraintBottom_toBottomOf="parent"
-                />
-            </LinearLayout>
-
-
-            <LinearLayout android:id="@+id/CardField2"
-                          android:layout_width="1dp"
-                          android:layout_weight="1"
-                          android:layout_height="fill_parent">
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="9">
                 <ImageView android:id="@+id/CardView1"
 
-                           android:layout_height="fill_parent"
-                           android:layout_width="fill_parent"
-                           android:rotation="180"
+                           android:layout_width="100dp"
+                           android:layout_height="137dp"
+
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
-                           android:layout_marginStart="20dp"
+                           android:layout_marginRight="10dp"
 
                            app:layout_constraintRight_toRightOf="parent"
                            app:layout_constraintTop_toTopOf="parent"
                            app:layout_constraintBottom_toBottomOf="parent"
                 />
 
-            </LinearLayout>
+                <ImageView android:id="@+id/Deck1"
+
+                           android:layout_width="75dp"
+                           android:layout_height="103dp"
+
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           app:layout_constraintLeft_toLeftOf="parent"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           android:layout_marginLeft="5dp"
+                />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                    android:id="@+id/CardField2"
+
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="9">
+                <ImageView android:id="@+id/CardView2"
+
+                           android:layout_width="100dp"
+                           android:layout_height="137dp"
+
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           android:layout_marginLeft="10dp"
+
+                           app:layout_constraintLeft_toLeftOf="parent"
+                           app:layout_constraintTop_toTopOf="parent"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+                <ImageView android:id="@+id/Deck2"
+
+                           android:layout_width="75dp"
+                           android:layout_height="103dp"
+
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           app:layout_constraintRight_toRightOf="parent"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           android:layout_marginRight="5dp"
+                />
+            </android.support.constraint.ConstraintLayout>
 
             <LinearLayout android:layout_width="1dp"
-                          android:layout_weight="1"
+                          android:layout_weight="5"
                           android:layout_height="fill_parent">
             </LinearLayout>
 
         </LinearLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_weight="1">
-
-            <ImageView android:id="@+id/Deck2"
-
-                       android:layout_height="wrap_content"
-                       android:layout_width="130dp"
-
-                       android:adjustViewBounds="true"
-                       android:scaleType="fitXY"
-
-                       app:layout_constraintLeft_toLeftOf="parent"
-                       app:layout_constraintTop_toTopOf="parent"
-                       app:layout_constraintBottom_toBottomOf="parent"
-            >
-            </ImageView>
-
-            <TextView android:id="@+id/DeckSize2"
-
-                      android:layout_width="wrap_content"
-                      android:layout_height="100dp"
-
-                      app:layout_constraintTop_toTopOf="parent"
-                      app:layout_constraintBottom_toBottomOf="parent"
-                      app:layout_constraintLeft_toRightOf="@id/Deck2"
-
-                      android:textSize="50sp"
-                      android:textColor="#FFFFFF"
-                      app:fontFamily="@font/vt323"
-            />
+                android:layout_weight="1"
+                android:weightSum="29">
 
 
-            <Button android:id="@+id/turn2"
+            <Button android:id="@+id/surrender1"
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-
-                    android:text="Start turn"
-                    android:textSize="30dp"
-                    app:fontFamily="@font/vt323">
-
-            </Button>
-
-            <Button android:id="@+id/surrender2"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
 
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
 
                     android:text="Surrender"
-                    android:textSize="30dp"
+                    android:textSize="15sp"
                     app:fontFamily="@font/vt323"
             />
 
-        </android.support.constraint.ConstraintLayout>
+            <TextView android:id="@+id/DeckSize1"
+
+                      android:layout_width="1dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="3"
+
+                      android:textAlignment="center"
+
+                      android:textSize="25sp"
+                      android:textColor="#FFFFFF"
+                      app:fontFamily="@font/vt323"
+            />
+
+
+            <Button android:id="@+id/turn1"
+
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+
+                    android:text="Start turn"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/vt323">
+
+            </Button>
+            <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"></LinearLayout>
+            <Button android:id="@+id/turn2"
+
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+
+                    android:text="Start turn"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/vt323">
+
+            </Button>
+
+            <TextView android:id="@+id/DeckSize2"
+
+                      android:layout_width="1dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="3"
+
+                      android:textAlignment="center"
+
+                      android:textSize="25sp"
+                      android:textColor="#FFFFFF"
+                      app:fontFamily="@font/vt323"
+            />
+
+
+            <Button android:id="@+id/surrender2"
+
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    android:text="Surrender"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/vt323"
+            />
+
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
