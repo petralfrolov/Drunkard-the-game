@@ -17,6 +17,10 @@ import android.util.Log
 import android.view.Display
 import android.view.animation.RotateAnimation
 import android.view.animation.ScaleAnimation
+import android.R
+import android.view.animation.AnimationUtils
+
+
 
 
 class PVEGameField : AppCompatActivity() {
@@ -119,6 +123,7 @@ class PVEGameField : AppCompatActivity() {
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
 
+        val animation = AnimationUtils.loadAnimation(this, R.anim.)
         val animationYourMove = TranslateAnimation(
             -yourCardField.width.toFloat() + yourCardView.width,
             0f,
@@ -127,6 +132,8 @@ class PVEGameField : AppCompatActivity() {
         )
         animationYourMove.duration = 500
         animationYourMove.fillAfter = false
+
+
 
         val animationEnemyMove = TranslateAnimation(
             yourCardField.width.toFloat() - enemyCardView.width,

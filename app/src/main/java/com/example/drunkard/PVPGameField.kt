@@ -40,8 +40,8 @@ class PVPGameField : AppCompatActivity() {
         tableanim.setBackgroundResource()
         */
 
-        loadImg(Deck1, "cards/back_turned.png")
-        loadImg(Deck2, "cards/back_turned.png")
+        loadImg(Deck1, "cards/back.png")
+        loadImg(Deck2, "cards/back.png")
 
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
@@ -114,7 +114,6 @@ class PVPGameField : AppCompatActivity() {
         if (game.GetCurDeckSize2() > 0)
             CardView2.setAlpha(255)
         */
-        Thread.sleep(1000)
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
 
