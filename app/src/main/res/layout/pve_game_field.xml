@@ -41,68 +41,53 @@
 
             <android.support.constraint.ConstraintLayout
                     android:id="@+id/yourCardField"
-
                     android:layout_width="1dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="9">
-                <ImageView android:id="@+id/yourCardView"
 
+                <ImageView android:id="@+id/yourCardView"
                            android:layout_width="100dp"
                            android:layout_height="137dp"
-
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
                            android:layout_marginRight="10dp"
-
                            app:layout_constraintRight_toRightOf="parent"
                            app:layout_constraintTop_toTopOf="parent"
-                           app:layout_constraintBottom_toBottomOf="parent"
-                />
+                           app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <ImageView android:id="@+id/yourDeckView"
-
                            android:layout_width="75dp"
                            android:layout_height="103dp"
-
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
                            app:layout_constraintLeft_toLeftOf="parent"
                            app:layout_constraintBottom_toBottomOf="parent"
-                           android:layout_marginLeft="5dp"
-                />
+                           android:layout_marginLeft="5dp"/>
             </android.support.constraint.ConstraintLayout>
-
 
             <android.support.constraint.ConstraintLayout
                     android:id="@+id/enemyCardField"
-
                     android:layout_width="1dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="9">
                 <ImageView android:id="@+id/enemyCardView"
-
                            android:layout_width="100dp"
                            android:layout_height="137dp"
-
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
                            android:layout_marginLeft="10dp"
-
                            app:layout_constraintLeft_toLeftOf="parent"
                            app:layout_constraintTop_toTopOf="parent"
                            app:layout_constraintBottom_toBottomOf="parent"
                 />
                 <ImageView android:id="@+id/enemyDeckView"
-
                            android:layout_width="75dp"
                            android:layout_height="103dp"
-
                            android:adjustViewBounds="true"
                            android:scaleType="fitXY"
                            app:layout_constraintRight_toRightOf="parent"
                            app:layout_constraintBottom_toBottomOf="parent"
-                           android:layout_marginRight="5dp"
-                />
+                           android:layout_marginRight="5dp"/>
             </android.support.constraint.ConstraintLayout>
 
             <LinearLayout android:layout_width="1dp"
@@ -122,24 +107,25 @@
             <LinearLayout android:layout_width="1dp"
                           android:layout_height="match_parent"
                           android:layout_weight="5">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="Your deck:"
+                          android:textAlignment="center"
+                          android:textColor="#FFFFFF"
+                          android:textSize="25sp"
+                          app:fontFamily="@font/vt323"/>
             </LinearLayout>
 
             <TextView android:id="@+id/yourDeckSize"
-
                       android:layout_width="1dp"
                       android:layout_height="match_parent"
                       android:layout_weight="3"
-
                       android:textAlignment="center"
-
                       android:textSize="25sp"
                       android:textColor="#FFFFFF"
-                      app:fontFamily="@font/vt323"
-            />
-
+                      app:fontFamily="@font/vt323"/>
 
             <Button android:id="@+id/turn"
-
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_weight="12"
@@ -147,36 +133,27 @@
                     android:text="Start turn"
                     android:textSize="15sp"
                     app:fontFamily="@font/vt323">
-
             </Button>
 
             <TextView android:id="@+id/enemyDeckSize"
-
                       android:layout_width="1dp"
                       android:layout_height="match_parent"
                       android:layout_weight="3"
-
                       android:textAlignment="center"
-
                       android:textSize="25sp"
                       android:textColor="#FFFFFF"
-                      app:fontFamily="@font/vt323"
-            />
-
+                      app:fontFamily="@font/vt323"/>
 
             <Button android:id="@+id/surrender"
-
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
                     android:textAlignment="center"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-
                     android:text="Surrender"
                     android:textSize="15sp"
-                    app:fontFamily="@font/vt323"
-            />
+                    app:fontFamily="@font/vt323"/>
 
         </LinearLayout>
 
