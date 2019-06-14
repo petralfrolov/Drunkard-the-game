@@ -21,7 +21,6 @@ import android.view.animation.ScaleAnimation
 
 
 
-
 class PVEGameField : AppCompatActivity() {
     var game = Drunkgame()
 
@@ -122,7 +121,6 @@ class PVEGameField : AppCompatActivity() {
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
 
-       // val animation = AnimationUtils.loadAnimation(this, R.anim.)
         val animationYourMove = TranslateAnimation(
             -yourCardField.width.toFloat() + yourCardView.width,
             0f,
