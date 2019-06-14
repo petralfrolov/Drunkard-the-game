@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-
+                android:textAlignment="center"
                 android:text="PvP"
                 android:textSize="140sp"
                 app:fontFamily="@font/vt323"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-
+                android:textAlignment="center"
                 android:text="PvE"
                 android:textSize="140sp"
                 app:fontFamily="@font/vt323"

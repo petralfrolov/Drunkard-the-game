@@ -143,7 +143,7 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_weight="12"
-
+                    android:textAlignment="center"
                     android:text="Start turn"
                     android:textSize="15sp"
                     app:fontFamily="@font/vt323">
@@ -169,7 +169,7 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
-
+                    android:textAlignment="center"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
 
