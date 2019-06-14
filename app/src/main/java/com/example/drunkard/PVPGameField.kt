@@ -117,7 +117,7 @@ class PVPGameField : AppCompatActivity() {
         */
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
-        if (pastDeck != game.GetCurDeckSize1()) {
+        if (pastDeck < game.GetCurDeckSize1()) {
             val animationMove = TranslateAnimation(
                 -CardField1.width.toFloat() + CardView1.width,
                 0f,
@@ -126,8 +126,8 @@ class PVPGameField : AppCompatActivity() {
             )
             animationMove.duration = 500
             animationMove.fillAfter = false
-
             CardView1.startAnimation(animationMove)
+
         }
 
         //loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
@@ -173,7 +173,7 @@ class PVPGameField : AppCompatActivity() {
 
         //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
-        if (pastDeck != game.GetCurDeckSize2()) {
+        if (pastDeck < game.GetCurDeckSize2()) {
             val animationMove = TranslateAnimation(
                 CardField1.width.toFloat() - CardView2.width,
                 0f,
