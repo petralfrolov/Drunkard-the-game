@@ -89,7 +89,7 @@ class PVPGameField : AppCompatActivity() {
         if (game.GetCurDeckSize2() <= 0)
             CardView2.setAlpha(0)
         */
-
+        var pastDeck : Int = game.GetCurDeckSize1()
         game.StartTurn1()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
@@ -117,17 +117,19 @@ class PVPGameField : AppCompatActivity() {
         */
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
+        if (pastDeck != game.GetCurDeckSize1()) {
+            val animationMove = TranslateAnimation(
+                -CardField1.width.toFloat() + CardView1.width,
+                0f,
+                CardField1.height.toFloat() / 2 - CardView1.height / 2,
+                0f
+            )
+            animationMove.duration = 500
+            animationMove.fillAfter = false
 
-        val animationMove = TranslateAnimation(
-            -CardField1.width.toFloat() + CardView1.width,
-            0f,
-            CardField1.height.toFloat() / 2 - CardView1.height / 2,
-            0f
-        )
-        animationMove.duration = 500
-        animationMove.fillAfter = false
+            CardView1.startAnimation(animationMove)
+        }
 
-        CardView1.startAnimation(animationMove)
         //loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
     }
@@ -143,7 +145,7 @@ class PVPGameField : AppCompatActivity() {
         if (game.GetCurDeckSize2() <= 0)
             CardView2.setAlpha(0)
         */
-
+        var pastDeck : Int = game.GetCurDeckSize2()
         game.StartTurn2()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
@@ -171,18 +173,18 @@ class PVPGameField : AppCompatActivity() {
 
         //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
+        if (pastDeck != game.GetCurDeckSize2()) {
+            val animationMove = TranslateAnimation(
+                CardField1.width.toFloat() - CardView2.width,
+                0f,
+                CardField1.height.toFloat() / 2 - CardView2.height / 2,
+                0f
+            )
+            animationMove.duration = 500
+            animationMove.fillAfter = false
 
-        val animationMove = TranslateAnimation(
-            CardField1.width.toFloat() - CardView2.width,
-            0f,
-            CardField1.height.toFloat() / 2 - CardView2.height / 2,
-            0f
-        )
-        animationMove.duration = 500
-        animationMove.fillAfter = false
-
-        CardView2.startAnimation(animationMove)
-
+            CardView2.startAnimation(animationMove)
+        }
     }
 
     fun toGameEndMenu1(view: View) {
