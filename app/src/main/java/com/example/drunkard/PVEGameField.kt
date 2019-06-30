@@ -5,18 +5,21 @@ import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.pve_game_field.*
 import java.io.InputStream
-import android.view.animation.TranslateAnimation
 import android.R.attr.y
 import android.R.attr.x
 import android.graphics.Point
 import android.util.Log
 import android.view.Display
-import android.view.animation.RotateAnimation
-import android.view.animation.ScaleAnimation
+import android.view.animation.*
+import android.support.v4.view.ViewCompat.setTranslationX
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.opengl.ETC1.getWidth
+import android.support.v4.view.ViewCompat.animate
+import android.R.attr.translationX
 
 
 
@@ -121,6 +124,40 @@ class PVEGameField : AppCompatActivity() {
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
 
+        val animationYourTest = AnimationUtils.loadAnimation(this, R.anim.leftcardanim)
+
+        yourCardView.scaleX = 75/100.toFloat()
+        yourCardView.scaleY = 103/137.toFloat()
+
+
+        yourCardView.x = yourDeckView.x
+        yourCardView.y = yourDeckView.y
+
+        yourCardView.animate()
+            .translationX(0f)
+            .translationY(0f)
+            .setDuration(500)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationStart(animation: Animator) {
+                    yourCardView.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(500)
+                        .setListener(object : AnimatorListenerAdapter() {
+                            override fun onAnimationEnd(animation: Animator) {
+                                yourCardView.translationX = 0f
+                                yourCardView.translationY = 0f
+
+                                yourCardView.scaleX = 1f
+                                yourCardView.scaleY = 1f
+                            }
+                        })
+                }
+            })
+
+
+
+        /*
         val animationYourMove = TranslateAnimation(
             -yourCardField.width.toFloat() + yourCardView.width,
             0f,
@@ -131,7 +168,7 @@ class PVEGameField : AppCompatActivity() {
         animationYourMove.fillAfter = false
 
 
-
+        */
         val animationEnemyMove = TranslateAnimation(
             yourCardField.width.toFloat() - enemyCardView.width,
             0f,
@@ -141,8 +178,10 @@ class PVEGameField : AppCompatActivity() {
         animationEnemyMove.duration = 500
         animationEnemyMove.fillAfter = false
 
-        yourCardView.startAnimation(animationYourMove)
+        //yourCardView.startAnimation(animationYourMove)
         enemyCardView.startAnimation(animationEnemyMove)
+
+
     }
 
     fun toGameEndMenu(view: View) {

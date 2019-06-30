@@ -41,16 +41,6 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="9">
 
-                <ImageView android:id="@+id/yourCardView"
-                           android:layout_width="100dp"
-                           android:layout_height="137dp"
-                           android:adjustViewBounds="true"
-                           android:scaleType="fitXY"
-                           android:layout_marginRight="10dp"
-                           app:layout_constraintRight_toRightOf="parent"
-                           app:layout_constraintTop_toTopOf="parent"
-                           app:layout_constraintBottom_toBottomOf="parent"/>
-
                 <ImageView android:id="@+id/yourDeckView"
                            android:layout_width="75dp"
                            android:layout_height="103dp"
@@ -59,6 +49,17 @@
                            app:layout_constraintLeft_toLeftOf="parent"
                            app:layout_constraintBottom_toBottomOf="parent"
                            android:layout_marginLeft="5dp"/>
+
+                <ImageView android:id="@+id/yourCardView"
+                           android:layout_width="100dp"
+                           android:layout_height="137dp"
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           android:layout_marginRight="10dp"
+                           app:layout_constraintRight_toRightOf="parent"
+                           app:layout_constraintTop_toTopOf="parent"
+                           app:layout_constraintBottom_toBottomOf="parent" android:layerType="none"/>
+
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -66,6 +67,15 @@
                     android:layout_width="1dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="9">
+                <ImageView android:id="@+id/enemyDeckView"
+                           android:layout_width="75dp"
+                           android:layout_height="103dp"
+                           android:adjustViewBounds="true"
+                           android:scaleType="fitXY"
+                           app:layout_constraintRight_toRightOf="parent"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           android:layout_marginRight="5dp"/>
+
                 <ImageView android:id="@+id/enemyCardView"
                            android:layout_width="100dp"
                            android:layout_height="137dp"
@@ -75,14 +85,7 @@
                            app:layout_constraintLeft_toLeftOf="parent"
                            app:layout_constraintTop_toTopOf="parent"
                            app:layout_constraintBottom_toBottomOf="parent"/>
-                <ImageView android:id="@+id/enemyDeckView"
-                           android:layout_width="75dp"
-                           android:layout_height="103dp"
-                           android:adjustViewBounds="true"
-                           android:scaleType="fitXY"
-                           app:layout_constraintRight_toRightOf="parent"
-                           app:layout_constraintBottom_toBottomOf="parent"
-                           android:layout_marginRight="5dp"/>
+
             </android.support.constraint.ConstraintLayout>
 
             <LinearLayout android:layout_width="1dp"

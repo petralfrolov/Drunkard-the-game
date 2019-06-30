@@ -48,7 +48,6 @@ class Drunkgame() {
     }
 
     fun Turn() : Boolean {
-
         yourCard = yourDeck.GetFirstCard()
         enemyCard = enemyDeck.GetFirstCard()
         Log.d("Enemy = ", enemyCard.GetCardText())
