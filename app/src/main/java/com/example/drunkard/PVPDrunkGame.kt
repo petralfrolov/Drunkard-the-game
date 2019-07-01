@@ -64,20 +64,21 @@ class PVPDrunkGame() {
 
     }
 
-    fun EndTurn() : Boolean {
-        if (CurDeck1.GetDeckSize() != CurDeck2.GetDeckSize())
-            return true
-        if (isCardBigger(Card1, Card2) > 0) {
+    fun EndTurn() : Int {
+        if (Deck1.GetDeckSize() == 0 || Deck2.GetDeckSize() == 0)
+            return -1
+        if (isCardBigger(Card1, Card2) >= 0) {
             MergeDecks(Deck1, CurDeck1)
             MergeDecks(Deck1, CurDeck2)
+            return 1
         }
         if  (isCardBigger(Card1, Card2) < 0) {
             MergeDecks(Deck2, CurDeck1)
             MergeDecks(Deck2, CurDeck2)
+            return 2
         }
-        if (Deck1.GetDeckSize() == 0 || Deck2.GetDeckSize() == 0)
-            return false
-        return true
+        return 0
+
     }
 
     fun GetDeckSize1() : Int {

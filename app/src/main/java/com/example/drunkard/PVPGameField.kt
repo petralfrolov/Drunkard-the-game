@@ -19,6 +19,10 @@ class PVPGameField : AppCompatActivity() {
     lateinit var buttonClickPlayer: Player
     lateinit var animator : com.example.drunkard.Animator
 
+    var player1Move = false
+    var player2Move = false
+    var moveResult = 0
+
     fun loadImg(view: View, path: String) {
         var ims = applicationContext.assets.open(path)
         var img = Drawable.createFromStream(ims, null)
@@ -77,57 +81,61 @@ class PVPGameField : AppCompatActivity() {
     }
 
     fun OnClickStartTurn1(view: View) {
+        if (player1Move) {
+            return
+        }
+
         var ims: InputStream
-        var card: Drawable
 
         buttonClickPlayer.play()
 
-        /*
-        if (game.GetCurDeckSize1() <= 0)
-            CardView1.setAlpha(0)
-        if (game.GetCurDeckSize2() <= 0)
-            CardView2.setAlpha(0)
-        */
-        var pastDeck : Int = game.GetCurDeckSize1()
         game.StartTurn1()
-        DeckSize1.text = game.GetDeckSize1().toString()
-        DeckSize2.text = game.GetDeckSize2().toString()
-        if (!game.EndTurn()) {
-            var result = true
-            if (game.GetDeckSize1() <= 0) {
-                result = false
-            }
-
-            player.stop()
-
-            val moveIntent = Intent(this, PVPGameResults::class.java)
-            moveIntent.putExtra("Result", result)
-            startActivity(moveIntent)
-        }
-
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
 
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
+        CardView1.visibility = ImageView.VISIBLE
 
-        if (pastDeck < game.GetCurDeckSize1()) {
-            animator.animateToTable(CardView1, DeckView1, 0, 0)
+        animator.animateToTable(CardView1, DeckView1, 0, 0)
+
+        player1Move = true
+        if (player2Move){
+            EndTurn()
         }
     }
 
     fun OnClickStartTurn2(view: View) {
+        if (player2Move) {
+            return
+        }
+
         var ims: InputStream
-        var card: Drawable
+
         buttonClickPlayer.play()
 
         var pastDeck : Int = game.GetCurDeckSize2()
         game.StartTurn2()
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
-        if (!game.EndTurn()) {
-            var result = true
+
+        loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
+        CardView2.visibility = ImageView.VISIBLE
+
+        animator.animateToTable(CardView2, DeckView2, 0, 0)
+
+        player2Move = true
+        if (player1Move){
+            EndTurn()
+        }
+    }
+
+    fun EndTurn(){
+        moveResult = game.EndTurn()
+
+        if (moveResult == -1) {
+            var result = 1
             if (game.GetDeckSize1() <= 0) {
-                result = false
+                result = 2
             }
 
             player.stop()
@@ -136,14 +144,14 @@ class PVPGameField : AppCompatActivity() {
             moveIntent.putExtra("Result", result)
             startActivity(moveIntent)
         }
-        DeckSize1.text = game.GetDeckSize1().toString()
-        DeckSize2.text = game.GetDeckSize2().toString()
-
-        loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
-
-        if (pastDeck < game.GetCurDeckSize2()) {
-            animator.animateToTable(CardView2, DeckView2, 0, 0)
+        else{
+            // todo animations
+            //Thread.sleep(2000) ???????????????????????????????????????????????????????????????????????
+            CardView1.visibility = ImageView.INVISIBLE
+            CardView2.visibility = ImageView.INVISIBLE
         }
+        player1Move = false
+        player2Move = false
     }
 
     fun toGameEndMenu1(view: View) {

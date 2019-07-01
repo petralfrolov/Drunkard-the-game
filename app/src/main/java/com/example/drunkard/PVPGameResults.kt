@@ -15,11 +15,11 @@ class PVPGameResults : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pvp_game_results)
-        var result = intent.getBooleanExtra("Result", false)
+        var result = intent.getIntExtra("Result", 1)
         var muted = intent.getBooleanExtra("Muted", false)
 
         var source : Int
-        if (result) {
+        if (result == 1) {
             // win case
             gameEndTextView1.setText("You win!")
             gameEndTextView2.setText("You lose")
