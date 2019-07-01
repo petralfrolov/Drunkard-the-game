@@ -29,6 +29,7 @@ class PVEGameField : AppCompatActivity() {
 
     lateinit var player: Player
     lateinit var buttonClickPlayer: Player
+    lateinit var animator : com.example.drunkard.Animator
 
     fun loadImg(view: View, path: String) {
         var ims = applicationContext.assets.open(path)
@@ -51,11 +52,7 @@ class PVEGameField : AppCompatActivity() {
         buttonClickPlayer.muted = muted
         buttonClickPlayer.cancelLooping()
 
-        /*
-        val gifTable = GifDrawable(resources, R.drawable.anim)
-        tableanim.setBackgroundResource()
-        */
-
+        animator = com.example.drunkard.Animator()
 
         yourDeckSize.text = game.GetYourDeckSize().toString()
         enemyDeckSize.text = game.GetEnemyDeckSize().toString()
@@ -124,38 +121,8 @@ class PVEGameField : AppCompatActivity() {
         loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
 
 
-        val animationYourTest = AnimationUtils.loadAnimation(this, R.anim.leftcardanim)
-
-        yourCardView.scaleX = 75/100.toFloat()
-        yourCardView.scaleY = 103/137.toFloat()
-
-
-        yourCardView.x = yourDeckView.x
-        yourCardView.y = yourDeckView.y
-
-        yourCardView.animate()
-            .translationX(0f)
-            .translationY(0f)
-            .setDuration(500)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationStart(animation: Animator) {
-                    yourCardView.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .setDuration(500)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator) {
-                                yourCardView.translationX = 0f
-                                yourCardView.translationY = 0f
-
-                                yourCardView.scaleX = 1f
-                                yourCardView.scaleY = 1f
-                            }
-                        })
-                }
-            })
-
-
+        animator.animateToTable(yourCardView, yourDeckView, 0, 0)
+        animator.animateToTable(enemyCardView, enemyDeckView, 0, 0)
 
         /*
         val animationYourMove = TranslateAnimation(
@@ -168,7 +135,7 @@ class PVEGameField : AppCompatActivity() {
         animationYourMove.fillAfter = false
 
 
-        */
+
         val animationEnemyMove = TranslateAnimation(
             yourCardField.width.toFloat() - enemyCardView.width,
             0f,
@@ -180,7 +147,7 @@ class PVEGameField : AppCompatActivity() {
 
         //yourCardView.startAnimation(animationYourMove)
         enemyCardView.startAnimation(animationEnemyMove)
-
+        */
 
     }
 

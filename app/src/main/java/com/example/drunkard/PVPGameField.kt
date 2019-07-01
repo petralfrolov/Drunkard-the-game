@@ -8,6 +8,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
+import kotlinx.android.synthetic.main.pve_game_field.*
 import kotlinx.android.synthetic.main.pvp_game_field.*
 import java.io.InputStream
 
@@ -16,6 +17,7 @@ class PVPGameField : AppCompatActivity() {
 
     lateinit var player: Player
     lateinit var buttonClickPlayer: Player
+    lateinit var animator : com.example.drunkard.Animator
 
     fun loadImg(view: View, path: String) {
         var ims = applicationContext.assets.open(path)
@@ -36,13 +38,10 @@ class PVPGameField : AppCompatActivity() {
         buttonClickPlayer.muted = muted
         buttonClickPlayer.cancelLooping()
 
-        /*
-        val gifTable = GifDrawable(resources, R.drawable.anim)
-        tableanim.setBackgroundResource()
-        */
+        animator = com.example.drunkard.Animator()
 
-        loadImg(Deck1, "cards/back.png")
-        loadImg(Deck2, "cards/back.png")
+        loadImg(DeckView1, "cards/back.png")
+        loadImg(DeckView2, "cards/back.png")
 
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
@@ -109,29 +108,11 @@ class PVPGameField : AppCompatActivity() {
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
 
-        /*
-        if (game.GetCurDeckSize1() > 0)
-            CardView1.setAlpha(255)
-        if (game.GetCurDeckSize2() > 0)
-            CardView2.setAlpha(255)
-        */
-
         loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
+
         if (pastDeck < game.GetCurDeckSize1()) {
-            val animationMove = TranslateAnimation(
-                -CardField1.width.toFloat() + CardView1.width,
-                0f,
-                CardField1.height.toFloat() / 2 - CardView1.height / 2,
-                0f
-            )
-            animationMove.duration = 500
-            animationMove.fillAfter = false
-            CardView1.startAnimation(animationMove)
-
+            animator.animateToTable(CardView1, DeckView1, 0, 0)
         }
-
-        //loadImg(enemyCardView, "cards/${game.enemyCard.GetCardType()}/${game.enemyCard.GetCardName()}.png")
-
     }
 
     fun OnClickStartTurn2(view: View) {
@@ -139,12 +120,6 @@ class PVPGameField : AppCompatActivity() {
         var card: Drawable
         buttonClickPlayer.play()
 
-        /*
-        if (game.GetCurDeckSize1() <= 0)
-            CardView1.setAlpha(0)
-        if (game.GetCurDeckSize2() <= 0)
-            CardView2.setAlpha(0)
-        */
         var pastDeck : Int = game.GetCurDeckSize2()
         game.StartTurn2()
         DeckSize1.text = game.GetDeckSize1().toString()
@@ -164,26 +139,10 @@ class PVPGameField : AppCompatActivity() {
         DeckSize1.text = game.GetDeckSize1().toString()
         DeckSize2.text = game.GetDeckSize2().toString()
 
-        /*
-        if (game.GetCurDeckSize1() > 0)
-            CardView1.setAlpha(255)
-        if (game.GetCurDeckSize2() > 0)
-            CardView2.setAlpha(255)
-        */
-
-        //loadImg(CardView1, "cards/${game.Card1.GetCardType()}/${game.Card1.GetCardName()}.png")
         loadImg(CardView2, "cards/${game.Card2.GetCardType()}/${game.Card2.GetCardName()}.png")
-        if (pastDeck < game.GetCurDeckSize2()) {
-            val animationMove = TranslateAnimation(
-                CardField1.width.toFloat() - CardView2.width,
-                0f,
-                CardField1.height.toFloat() / 2 - CardView2.height / 2,
-                0f
-            )
-            animationMove.duration = 500
-            animationMove.fillAfter = false
 
-            CardView2.startAnimation(animationMove)
+        if (pastDeck < game.GetCurDeckSize2()) {
+            animator.animateToTable(CardView2, DeckView2, 0, 0)
         }
     }
 

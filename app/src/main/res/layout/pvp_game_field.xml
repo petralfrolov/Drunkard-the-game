@@ -59,7 +59,7 @@
                            app:layout_constraintBottom_toBottomOf="parent"
                 />
 
-                <ImageView android:id="@+id/Deck1"
+                <ImageView android:id="@+id/DeckView1"
 
                            android:layout_width="75dp"
                            android:layout_height="103dp"
@@ -93,7 +93,7 @@
                            app:layout_constraintBottom_toBottomOf="parent"
                 />
 
-                <ImageView android:id="@+id/Deck2"
+                <ImageView android:id="@+id/DeckView2"
 
                            android:layout_width="75dp"
                            android:layout_height="103dp"
